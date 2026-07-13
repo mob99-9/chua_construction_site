@@ -1,0 +1,30 @@
+.privacy-page {
+  background: #f8f9fa;
+  padding: 120px 5% 80px;
+  color: #090e1a;
+}
+
+.privacy-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.privacy-container h1 {
+  color: #f87400;
+  margin-bottom: 24px;
+}
+
+.privacy-container h2 {
+  margin-top: 32px;
+  margin-bottom: 12px;
+  color: #090e1a;
+}
+
+.privacy-container p {
+  line-height: 1.8;
+  color: #4a5568;
+}

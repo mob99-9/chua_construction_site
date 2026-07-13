@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Allura&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary-orange: #ff9f1c;
+  --color-primary-orange-hover: #e88f10;
+  --color-dark-navy: #090e1a;
+  --color-dark-blue: #0b132b;
+  --color-light-bg: #f8f9fa;
+  --color-gray-text: #4a5568;
+
+  --font-sans: "Inter", sans-serif;
+  --font-script: "Allura", cursive;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: var(--color-dark-navy);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.primary-btn {
+  background: #f87400;
+  color: white;
+  border: 2px solid #f87400;
+  border-radius: 9999px;
+  padding: 14px 40px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(248, 116, 0, 0.25);
+}
+
+.primary-btn:hover {
+  background: white;
+  color: #f87400;
+  border-color: #f87400;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 35px rgba(248, 116, 0, 0.35);
+}
+
+.primary-btn:active {
+  transform: scale(0.97);
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+.animate-fadeIn{
+animation:fadeIn .25s ease;
+}
+
+@keyframes scaleIn{
+from{
+opacity:0;
+transform:scale(.95);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+.animate-scaleIn{
+animation:scaleIn .25s ease;
+}

@@ -1,0 +1,29 @@
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+.inquire-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;   /* Start below the navbar */
+
+  padding: 140px 20px 60px;  /* Top | Left/Right | Bottom */
+
+  background:
+    linear-gradient(
+      rgba(0, 6, 46, 0.68),
+      rgba(0, 6, 46, 0.75)
+    ),
+    url("../assets/city-bg.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
