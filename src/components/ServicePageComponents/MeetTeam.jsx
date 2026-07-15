@@ -5,6 +5,7 @@ import imgAccountant from '../../assets/Accountant.png';
 import imgArchi1 from '../../assets/Architect(1).png';
 import imgArchi2 from '../../assets/Architect.png';
 import imgArtist from '../../assets/3DArtist.png';
+import meetTeamIcon from '../../assets/icons/MeetTheTeam.png';
 
 export default function MeetTeam() {
   const team = [
@@ -43,7 +44,8 @@ export default function MeetTeam() {
   return (
     /* Changed bg-light-bg to bg-white to stay consistent with ServiceDetails */
     <section id="team" className="py-24 px-[5%] bg-white text-center">
-      <h2 className="text-[#0B132B] text-3xl sm:text-4xl font-bold mb-16">
+      <h2 className="text-[#0B132B] text-4xl md:text-5xl font-extrabold mb-16 flex items-center justify-center gap-3">
+        <img src={meetTeamIcon} alt="" className="w-10 h-10 object-contain" />
         Meet The Team
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-10 max-w-[1100px] mx-auto justify-items-center">

@@ -5,34 +5,38 @@ import serviceImg1 from "../../assets/image 3 (1).png";
 import serviceImg2 from "../../assets/image 3 (2).png";
 import serviceImg3 from "../../assets/image 3 (3).png";
 
+import mostBookedIcon from "../../assets/icons/MostBookedServices.png";
+
 export default function Services() {
   const servicesList = [
     {
-      name: "Architecture Design",
+      name: "Design",
       desc: "Designing floor plans",
       image: serviceImg1,
       route: "/design",
     },
     {
-      name: "3D Rendering",
-      desc: "Rendering Floor Plans",
+      name: "3D Render",
+      desc: "Rendering floor plans",
       image: serviceImg2,
       route: "/3d-render",
     },
     {
-      name: "Blueprint & Construction",
+      name: "Blueprint",
       desc: "Actualizing the plans",
       image: serviceImg3,
       route: "/blueprint",
     },
   ];
 
+
   return (
     <section
       id="services"
       className="py-24 px-[5%] text-center bg-white"
     >
-      <h2 className="text-4xl font-extrabold mb-16 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary-orange after:rounded-full">
+      <h2 className="text-4xl md:text-5xl font-extrabold mb-16 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary-orange after:rounded-full">
+        <img src={mostBookedIcon} alt="" className="w-10 h-10 inline-block mr-3 align-bottom relative -top-1" />
         Most Booked Services
       </h2>
 

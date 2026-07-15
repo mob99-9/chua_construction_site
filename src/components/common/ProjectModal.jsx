@@ -1,6 +1,7 @@
 import { FaTimes, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import projectOverviewIcon from "../../assets/icons/ReadAboutOurImpressiveProjects.png";
 
 export default function ProjectModal({
   project,
@@ -192,7 +193,8 @@ export default function ProjectModal({
 
           <div className="mt-12 pt-8 border-t">
 
-            <h3 className="text-xl font-bold text-[#001186]">
+            <h3 className="text-xl font-bold text-[#001186] flex items-center gap-2">
+              <img src={projectOverviewIcon} alt="" className="w-6 h-6 object-contain" />
               Project Overview
             </h3>
 

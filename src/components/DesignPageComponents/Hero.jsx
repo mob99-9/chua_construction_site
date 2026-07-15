@@ -18,22 +18,32 @@ export default function Hero() {
 
       <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white to-transparent" />
 
-      <div className="relative z-10 h-full max-w-[1200px] mx-auto px-6 flex items-center">
-        <div className="max-w-[700px] mt-28 md:mt-36">
-          <p className="uppercase tracking-[0.35em] text-[#F87400] font-semibold text-sm mb-5">
+      <div className="relative z-10 h-full max-w-[1200px] mx-auto px-6 flex items-center justify-center text-center">
+        <div className="max-w-[800px] mt-28 md:mt-36">
+          <p className="uppercase tracking-[0.35em] text-[#F87400] font-semibold text-sm mb-5 font-sans">
             Design Services
           </p>
 
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white">
-            Built on{" "}
-            <span className="font-['Allura'] text-[#F87400] text-5xl md:text-7xl font-normal">
-              Trust
+          <h1 className="flex flex-col select-none text-white leading-tight">
+            {/* Let's Design */}
+            <span className="flex items-baseline flex-wrap gap-x-3 justify-center">
+              <span className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold">
+                Let's
+              </span>
+              <span className="font-script text-[#f97316] leading-none text-7xl sm:text-8xl md:text-9xl">
+                Design
+              </span>
             </span>
-            <br />
-            <span className="font-['Allura'] text-[#F87400] text-5xl md:text-7xl font-normal">
-              Built
-            </span>{" "}
-            to Last
+
+            {/* your dream Project! */}
+            <span className="flex items-baseline flex-wrap gap-x-3 justify-center -mt-2">
+              <span className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold">
+                your dream
+              </span>
+              <span className="font-script text-[#f97316] leading-none text-7xl sm:text-8xl md:text-9xl">
+                Project!
+              </span>
+            </span>
           </h1>
         </div>
       </div>

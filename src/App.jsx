@@ -65,9 +65,30 @@ function App() {
         />
 
         <Route path="/projects/:id" element={<ProjectDetails />} />
-        <Route path="/3d-render" element={<ThreeDRenderPage />} />
-        <Route path="/blueprint" element={<BlueprintPage />} />
-        <Route path="/design" element={<DesignPage />} />
+        <Route
+          path="/3d-render"
+          element={
+            <Layout>
+              <ThreeDRenderPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/blueprint"
+          element={
+            <Layout>
+              <BlueprintPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/design"
+          element={
+            <Layout>
+              <DesignPage />
+            </Layout>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

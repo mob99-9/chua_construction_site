@@ -161,8 +161,8 @@
 .success-message h2 {
   width: 408px;
   max-width: 100%;
-  font-family: "Allura", cursive;
-  font-weight: 400;
+  font-family: var(--font-script);
+  font-weight: 700;
   font-size: 38.4px;
   line-height: 100%;
   letter-spacing: 0;

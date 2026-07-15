@@ -2,6 +2,7 @@ import React from 'react';
 import projImg1 from '../../assets/image 3 (4).png';
 import projImg2 from '../../assets/image 3 (5).png';
 import projImg3 from '../../assets/image 3 (6).png';
+import recentProjectsIcon from "../../assets/icons/RecentProjects.png";
 import projImg4 from '../../assets/image 3 (7).png';
 import projImg5 from '../../assets/image 3 (8).png';
 import projImg6 from '../../assets/image 3 (9).png';
@@ -10,39 +11,41 @@ export default function Projects() {
   const projectsList = [
     {
       name: 'Apartment',
-      desc: '1 story, 3 apartment',
+      desc: '1 story, 3 apartments',
       image: projImg1
     },
     {
       name: 'Residence',
-      desc: '1 story, 1 bedroom',
+      desc: '2 story, 3 bedrooms',
       image: projImg2
     },
     {
       name: 'Residence',
-      desc: '2 story, 2 bedroom',
+      desc: '2 story, 2 bedrooms',
       image: projImg3
     },
     {
       name: 'Residence',
-      desc: '2 story, 3 bedroom',
+      desc: '3 story, 5 bedrooms',
       image: projImg4
     },
     {
       name: 'Residence',
-      desc: '2 story, 2 bedroom',
+      desc: '2 story, 2 bedrooms',
       image: projImg5
     },
     {
-      name: 'Residence',
-      desc: '1 story, 3 bedroom',
+      name: 'Apartment',
+      desc: '2 story, 6 apartments',
       image: projImg6
     }
   ];
 
+
   return (
     <section id="projects" className="py-24 px-[5%] text-center bg-light-bg">
-      <h2 className="text-4xl font-extrabold mb-16 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary-orange after:rounded-full">
+      <h2 className="text-4xl md:text-5xl font-extrabold mb-16 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary-orange after:rounded-full">
+        <img src={recentProjectsIcon} alt="" className="w-10 h-10 inline-block mr-3 align-bottom relative -top-1" />
         Recent Projects
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1200px] mx-auto">

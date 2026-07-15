@@ -96,6 +96,9 @@
   color: #4b5563;
   line-height: 1.7;
   margin-bottom: 28px;
+  margin-left: 12px;
+  padding-left: 16px;
+  border-left: 2px solid #f97400;
 }
 
 .featured-project-info button,

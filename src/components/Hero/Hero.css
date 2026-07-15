@@ -53,9 +53,9 @@
 
 .project-hero-content h1 span {
   color: #f87400;
-  font-family: "Allura", cursive;
+  font-family: var(--font-script);
   font-size: clamp(5rem, 10vw, 9rem);
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .project-hero-content p {
@@ -90,6 +90,7 @@
   .project-hero-container {
     flex-direction: column;
     justify-content: flex-end;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 }

@@ -4,6 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { MapPin, Calendar, X } from "lucide-react";
 import logo from "../assets/logo.png";
 
+import readProjectIcon from "../assets/icons/ReadAboutOurImpressiveProjects.png";
+import buildingDetailsIcon from "../assets/icons/BuildingDetails.png";
+import photographsIcon from "../assets/icons/Photographs.png";
+import peopleBehindIcon from "../assets/icons/ThePeopleBehindIt.png";
+
 function ProjectDetails() {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(null);
@@ -83,7 +88,10 @@ function ProjectDetails() {
 
       <section className="details-grid">
         <div className="overview">
-          <h2>Project Overview</h2>
+          <h2 className="flex items-center gap-2">
+            <img src={readProjectIcon} alt="" className="w-6 h-6 object-contain" />
+            Project Overview
+          </h2>
 
           <p>
             Located in the heart of Mactan Channel, this high-end office
@@ -98,7 +106,10 @@ function ProjectDetails() {
         </div>
 
         <aside className="building-card">
-          <h2>Building Details</h2>
+          <h2 className="flex items-center gap-2">
+            <img src={buildingDetailsIcon} alt="" className="w-6 h-6 object-contain" />
+            Building Details
+          </h2>
 
           <ul>
             <li><b>Project Type:</b> Commercial Office</li>
@@ -134,7 +145,10 @@ function ProjectDetails() {
       </section>
 
       <section className="gallery-section">
-        <h2>Project Gallery</h2>
+        <h2 className="flex items-center gap-2">
+          <img src={photographsIcon} alt="" className="w-6 h-6 object-contain" />
+          Project Gallery
+        </h2>
 
         <div className="gallery-grid">
           {galleryImages.map((image, index) => (
@@ -154,7 +168,10 @@ function ProjectDetails() {
       </section>
 
       <section className="people-section">
-        <h2>The People Behind It</h2>
+        <h2 className="flex items-center gap-2">
+          <img src={peopleBehindIcon} alt="" className="w-6 h-6 object-contain" />
+          The People Behind It
+        </h2>
 
         <div className="people-grid">
           <div>

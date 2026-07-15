@@ -1,135 +1,87 @@
 import React from "react";
-import aboutImg from "../../assets/image 2.png";
 import logo from "../../assets/logo.png";
-import { MapPin } from "lucide-react";
+import bannerImg from "../../assets/image 2.png";
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="bg-white py-24 px-[5%]"
-    >
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+    <section id="about" className="bg-white">
 
-        {/* LEFT IMAGE */}
+      {/* Wide banner with logo centered — matches screenshot 2 */}
+      <div className="relative w-full h-[280px] md:h-[340px] overflow-hidden">
+        <img
+          src={bannerImg}
+          alt="CHUA Construction Banner"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-[#00062e]/55" />
 
-        <div className="relative group overflow-hidden rounded-3xl shadow-2xl h-[620px]">
-
+        {/* Centered logo */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full gap-3">
           <img
-            src={aboutImg}
-            alt="CHUA Construction"
-            className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+            src={logo}
+            alt="CHUA Logo"
+            className="h-28 md:h-36 object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)]"
           />
-
-          {/* Dark Overlay */}
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"></div>
-
-          {/* Logo */}
-
-          <div className="absolute inset-0 flex items-center justify-center">
-
-            <img
-              src={logo}
-              alt="CHUA Logo"
-              className="
-                w-72
-                md:w-80
-                drop-shadow-[0_15px_40px_rgba(0,0,0,.6)]
-                transition-all
-                duration-500
-                group-hover:scale-110
-              "
-            />
-
-          </div>
-
         </div>
+      </div>
 
-        {/* RIGHT CONTENT */}
+      {/* Text content block below banner */}
+      <div className="max-w-[1220px] mx-auto px-[5%] py-16">
 
-        <div>
-
-          <p className="uppercase tracking-[4px] text-primary-orange font-bold text-sm">
-            Welcome to CHUA Construction!
-          </p>
-
-          {/* Logo */}
-
-          <div className="flex items-center gap-5 mt-8">
-
-            <img
-              src={logo}
-              alt="logo"
-              className="h-20 object-contain"
-            />
-
-            <div className="w-px h-16 bg-gray-300"></div>
-
-            <span className="uppercase font-bold tracking-[2px] text-primary-orange">
-              Construction Company
-            </span>
-
-          </div>
-
-          {/* Quote */}
-
-          <h2
-            className="
-              font-script
-              text-[3rem]
-              text-[#001186]
-              mt-8
-            "
-          >
-            "Serving customers since 2020"
+        {/* Company name + tagline */}
+        <div className="flex flex-col items-center mb-10">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center text-slate-900 font-sans">
+            CHUA Construction Company
           </h2>
+          <p className="font-script text-[#001186] text-3xl md:text-4xl mt-2 text-center">
+            Serving customers since 2020
+          </p>
+          <div className="w-28 h-1 bg-[#f97400] rounded-full mt-4" />
+        </div>
 
-          {/* Orange Divider */}
+        {/* Body text */}
+        <div className="text-xl leading-relaxed space-y-6 text-slate-900">
 
-          <div className="w-28 h-1 bg-primary-orange rounded-full mt-5 mb-8"></div>
-
-          {/* Description */}
-
-          <div className="space-y-6 text-gray-600 text-lg leading-9">
-
+          {/* Company Overview */}
+          <div>
+            <h3 className="font-bold text-slate-900 text-xl mb-1">COMPANY OVERVIEW</h3>
             <p>
-              CHUA is a Filipino-led architectural and construction company
-              established in May 2020.
+              <span className="text-[#f97400]">Chua Constructions</span>
+              {" "}is a Filipino-lead, premier, full-service architectural and construction firm dedicated to transforming visions into enduring realities. Founded on the principles of integrity, innovation, and exceptional craftsmanship, we seamlessly integrate cutting-edge architectural design with robust engineering and construction management.
             </p>
-
-            <p>
-              We specialize in architectural design while also providing
-              complete construction services for residential, commercial,
-              office, and institutional projects.
+            <p className="mt-4">
+              We cater to residential, commercial, and industrial clients, delivering bespoke spaces that perfectly balance aesthetic elegance with structural functionality. From initial conceptual blueprints to the final structural handover, Chua Constructions handles every phase of the building lifecycle with absolute precision and professional care.
             </p>
-
-            <p>
-              Our team is committed to transforming ideas into functional,
-              beautiful, and sustainable spaces through quality workmanship,
-              innovative planning, and client-focused solutions.
-            </p>
-
           </div>
 
-          {/* Location */}
-
-          <div className="flex items-center gap-4 mt-10">
-
-            <MapPin
-              size={34}
-              className="text-primary-orange shrink-0"
-            />
-
-            <p className="font-semibold text-primary-orange text-lg">
-              Located at Unit 2 & 3, Floor 3, Tower A,
-              IT Park, Makati City
+          {/* Why Chua */}
+          <div>
+            <h3 className="font-bold text-slate-900 text-xl mb-2">WHY CHUA?</h3>
+            <p>
+              <span className="text-[#f97400]">Integrated Design-Build Approach:</span>
+              {" "}By housing both architecture and construction under one roof, we eliminate communication gaps, streamline timelines, and significantly reduce unexpected project costs.
             </p>
+            <p className="mt-3">
+              <span className="text-[#f97400]">Commitment to Quality:</span>
+              {" "}We partner with trusted suppliers and employ skilled craftsmen to ensure every structure we build stands the test of time.
+            </p>
+            <p className="mt-3">
+              <span className="text-[#f97400]">Client-Centric Philosophy:</span>
+              {" "}We believe that great architecture is collaborative. We work closely with our clients at every step, ensuring their unique style, needs, and goals are reflected in the final space.
+            </p>
+          </div>
 
+          {/* Company Location */}
+          <div>
+            <h3 className="font-bold text-slate-900 text-xl mb-1">COMPANY LOCATION</h3>
+            <p>
+              Visit us on{" "}
+              <span className="text-[#f97400]">Unit 2 &amp; 3, Floor 3, Tower A, IT Park, Makati City</span>
+            </p>
           </div>
 
         </div>
-
       </div>
     </section>
   );

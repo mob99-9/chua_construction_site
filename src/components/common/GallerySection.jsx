@@ -1,7 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProjectModal from "./ProjectModal";
 
+import iconDesign from "../../assets/icons/Design.png";
+import iconRender from "../../assets/icons/3dRender.png";
+import iconBlueprint from "../../assets/icons/BluePrint.png";
+
+import iconResidential from "../../assets/icons/Residential.png";
+import iconCommercial from "../../assets/icons/Commercial.png";
+import iconOfficeSpace from "../../assets/icons/OfficeSpace.png";
+import iconReligious from "../../assets/icons/Religious.png";
+
+const getMainIcon = (title) => {
+  if (title === "Design") return iconDesign;
+  if (title === "3D Render") return iconRender;
+  if (title === "Blueprint") return iconBlueprint;
+  return null;
+};
+
+const getCategoryIcon = (categoryTitle) => {
+  if (categoryTitle === "Residential") return iconResidential;
+  if (categoryTitle === "Commercial") return iconCommercial;
+  if (categoryTitle === "Office Space") return iconOfficeSpace;
+  if (categoryTitle === "Religious") return iconReligious;
+  return null;
+};
 
 export default function GallerySection({
   title,
@@ -12,11 +35,21 @@ export default function GallerySection({
 
 const navigate = useNavigate();
 
+const [hoveredProject, setHoveredProject] = useState(null);
 
-const [hoveredProject,setHoveredProject] = useState(null);
+const [hoverPreview, setHoverPreview] = useState(null);
 
-const [selectedProject,setSelectedProject] = useState(null);
+const [selectedProject, setSelectedProject] = useState(null);
 
+const [mousePosition, setMousePosition] = useState({
+  x: 0,
+  y: 0,
+});
+
+const [previewPosition, setPreviewPosition] = useState({
+  x: 0,
+  y: 0,
+});
 
 
 return (
@@ -33,7 +66,8 @@ return (
 
 <div className="flex items-center gap-4">
 
-<h2 className="text-5xl font-extrabold text-[#F87400]">
+<h2 className="text-4xl md:text-5xl font-extrabold text-[#F87400] flex items-center gap-3">
+{getMainIcon(title) && <img src={getMainIcon(title)} alt="" className="w-10 h-10 object-contain" />}
 {title}
 </h2>
 
@@ -72,9 +106,19 @@ categories.map((category)=>(
 <section key={category.id}>
 
 
-<h3 className="text-3xl font-bold text-[#001186]">
-{category.heading}
-</h3>
+<div className="mb-4 flex items-center">
+  {getCategoryIcon(category.title) ? (
+    <img 
+      src={getCategoryIcon(category.title)} 
+      alt={category.heading} 
+      className="h-10 md:h-12 object-contain" 
+    />
+  ) : (
+    <h3 className="text-3xl font-bold text-[#001186]">
+      {category.heading}
+    </h3>
+  )}
+</div>
 
 
 
@@ -85,8 +129,7 @@ categories.map((category)=>(
 
 
 
-<div className="flex gap-5 overflow-hidden">
-
+<div className="grid grid-cols-1 sm:grid-cols-2 md:flex gap-5 overflow-visible">
 
 {
 category.images.map((image,index)=>{
@@ -105,79 +148,48 @@ return (
 
 
 <article
+  key={id}
 
+onMouseEnter={() => setHoveredProject(id)}
 
-key={id}
+onMouseMove={(e)=>{
 
+setMousePosition({
 
-onMouseEnter={()=>setHoveredProject(id)}
+x:e.clientX,
+
+y:e.clientY,
+
+});
+
+}}
 
 onMouseLeave={()=>setHoveredProject(null)}
 
+  onMouseLeave={() => setHoveredProject(null)}
 
-onClick={()=>
+  onClick={() =>
+    setSelectedProject({
+      id: category.id,
+      image,
+      title: `${category.title} Project ${index + 1}`,
+      category: category.title,
+      service,
+      description: category.description,
+    })
+  }
 
-
-setSelectedProject({
-
-id:category.id,
-
-image,
-
-title:
-`${category.title} Project ${index+1}`,
-
-category:
-category.title,
-
-service,
-
-description:
-category.description
-
-})
-
-
-}
-
-
-
-className={`
-
-relative
-
-h-[260px]
-
-rounded-3xl
-
-overflow-hidden
-
-cursor-pointer
-
-shadow-lg
-
-transition-all
-
-duration-500
-
-
-${
-
-active
-
-?
-
-"flex-[2]"
-
-:
-
-"flex-1"
-
-}
-
-`}
-
-
+  className={`
+    relative
+    h-[260px]
+    rounded-3xl
+    overflow-hidden
+    cursor-pointer
+    shadow-lg
+    transition-all
+    duration-500
+    ${active ? "flex-[2]" : "flex-1"}
+  `}
 >
 
 
@@ -305,11 +317,72 @@ Read More →
 
 }
 
+{/* ================= Hover Preview ================= */}
+
 
 
 </div>
 
+{active && (
+<div
+className="
+hidden
+md:block
+fixed
+z-[99999]
+w-[420px]
+rounded-[30px]
+overflow-hidden
+bg-white
+shadow-[0_25px_80px_rgba(0,0,0,.25)]
+border
+border-gray-200
+animate-[fade_.25s_ease]
+pointer-events-none
+"
 
+style={{
+top: mousePosition.y - 260,
+left: mousePosition.x + 30,
+}}
+>
+
+<img
+src={image}
+alt=""
+className="w-full h-60 object-cover"
+/>
+
+<div className="p-7">
+
+<p className="uppercase tracking-[5px] text-xs text-[#F87400] font-bold">
+{service}
+</p>
+
+<h2 className="text-3xl font-bold text-[#001186] mt-2">
+{category.title}
+</h2>
+
+<p className="mt-4 text-gray-600 leading-7">
+{category.description}
+</p>
+
+<div className="flex justify-between items-center mt-6">
+
+<span className="text-[#F87400] font-bold">
+Click to explore →
+</span>
+
+<span className="text-gray-400 text-sm">
+Preview
+</span>
+
+</div>
+
+</div>
+
+</div>
+)}
 
 </article>
 

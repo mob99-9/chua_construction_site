@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Allura&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;700&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -10,7 +10,7 @@
   --color-gray-text: #4a5568;
 
   --font-sans: "Inter", sans-serif;
-  --font-script: "Allura", cursive;
+  --font-script: "Dancing Script", cursive;
 }
 
 * {
@@ -94,4 +94,26 @@ transform:scale(1);
 
 .animate-scaleIn{
 animation:scaleIn .25s ease;
+}
+
+@keyframes fade{
+
+0%{
+
+opacity:0;
+transform:
+translateY(20px)
+scale(.9);
+
+}
+
+100%{
+
+opacity:1;
+transform:
+translateY(0)
+scale(1);
+
+}
+
 }

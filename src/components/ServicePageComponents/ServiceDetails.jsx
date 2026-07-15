@@ -5,6 +5,10 @@ import imgDesign from "../../assets/Design.png";
 import imgRender from "../../assets/3DRender.png";
 import imgBlueprint from "../../assets/BluePrint.png";
 
+import iconDesign from "../../assets/icons/Design.png";
+import iconRender from "../../assets/icons/3dRender.png";
+import iconBlueprint from "../../assets/icons/BluePrint.png";
+
 export default function ServiceDetails() {
   const navigate = useNavigate();
 
@@ -12,6 +16,7 @@ export default function ServiceDetails() {
     {
       id: "design",
       title: "Architectural Design",
+      icon: iconDesign,
       description:
         "We create functional, elegant, and sustainable architectural spaces that are carefully designed to suit your vision and lifestyle.",
       image: imgDesign,
@@ -26,6 +31,7 @@ export default function ServiceDetails() {
     {
       id: "3d-render",
       title: "3D Rendering",
+      icon: iconRender,
       description:
         "Visualize your future project before construction through high-quality photorealistic renderings and immersive presentations.",
       image: imgRender,
@@ -40,6 +46,7 @@ export default function ServiceDetails() {
     {
       id: "blueprint",
       title: "Blueprint & Construction",
+      icon: iconBlueprint,
       description:
         "Complete construction drawings and technical documentation prepared for permits, contractors, and actual project execution.",
       image: imgBlueprint,
@@ -113,7 +120,8 @@ export default function ServiceDetails() {
 
           <div className="flex flex-col justify-center p-10 lg:p-14">
 
-            <h2 className="text-4xl font-bold text-[#001186] leading-tight">
+            <h2 className="text-4xl font-bold text-[#001186] leading-tight flex items-center gap-3">
+              <img src={service.icon} alt="" className="w-8 h-8 object-contain" />
               {service.title}
             </h2>
 

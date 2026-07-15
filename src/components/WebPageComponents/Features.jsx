@@ -36,7 +36,7 @@ export default function Features() {
     },
 
     {
-      title: "ALL IN ONE",
+      title: "All in One",
       desc: "From floor plans to construction",
       script: "We're here for you!",
       bg: featImg2,
@@ -69,7 +69,7 @@ export default function Features() {
     },
 
     {
-      title: "Unique Design",
+      title: "Unique Designs",
       desc: "A design that is truly yours",
       script: "Let's design together!",
       bg: featImg3,

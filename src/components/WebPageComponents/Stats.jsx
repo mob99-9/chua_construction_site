@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import statsBg1 from '../../assets/image 13.png';
 import statsBg2 from '../../assets/image 14.png';
+import howAreWeDoingIcon from '../../assets/icons/HowAreWeDoing.png';
 
 export default function Stats() {
   const [projectsCount, setProjectsCount] = useState(0);
@@ -43,7 +44,8 @@ export default function Stats() {
 
   return (
     <section className="py-16 px-[5%] bg-light-bg text-center">
-      <h2 className="text-3xl md:text-[2.2rem] font-extrabold mb-12 text-slate-900">
+      <h2 className="text-3xl md:text-[2.2rem] font-extrabold mb-12 text-slate-900 flex items-center justify-center gap-3">
+        <img src={howAreWeDoingIcon} alt="" className="w-9 h-9 object-contain" />
         How are we doing?{' '}
         <span 
           className="font-script text-orange-500 text-2xl sm:text-3xl cursor-pointer hover:text-orange-500/80 ml-2 transition-colors duration-300 select-none normal-case font-normal"
@@ -63,7 +65,7 @@ export default function Stats() {
         >
           <div className="absolute inset-0 bg-blue-900/40 z-10"></div>
           <div className="relative z-20 flex flex-col items-start max-w-[60%]">
-            <h3 className="text-xl sm:text-[1.8rem] font-bold leading-snug text-left">Number of projects done</h3>
+            <h3 className="text-xl sm:text-[1.8rem] font-bold leading-snug text-left">Projects Completed</h3>
           </div>
           <div className="relative z-20 flex items-center gap-6">
             <svg 
@@ -92,7 +94,7 @@ export default function Stats() {
         >
           <div className="absolute inset-0 bg-orange-500/30 z-10"></div>
           <div className="relative z-20 flex flex-col items-start max-w-[60%]">
-            <h3 className="text-xl sm:text-[1.8rem] font-bold leading-snug text-left">Customer Satisfaction</h3>
+            <h3 className="text-xl sm:text-[1.8rem] font-bold leading-snug text-left">Customer's Satisfied</h3>
           </div>
           <div className="relative z-20 flex items-center gap-6">
             <svg 

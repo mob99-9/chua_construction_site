@@ -179,6 +179,15 @@
 }
 
 @media (max-width: 900px) {
+  .details-nav {
+    height: 72px;
+    padding: 0 16px;
+  }
+
+  .details-nav img {
+    width: 80px;
+  }
+
   .details-hero,
   .details-grid {
     grid-template-columns: 1fr;
@@ -191,7 +200,7 @@
   }
 
   .details-content h1 {
-    font-size: 42px;
+    font-size: 38px;
   }
 
   .details-main-img {

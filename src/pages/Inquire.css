@@ -12,9 +12,9 @@ body,
 
   display: flex;
   justify-content: center;
-  align-items: flex-start;   /* Start below the navbar */
+  align-items: center;
 
-  padding: 140px 20px 60px;  /* Top | Left/Right | Bottom */
+  padding: 120px 20px 60px;  /* Top | Left/Right | Bottom */
 
   background:
     linear-gradient(

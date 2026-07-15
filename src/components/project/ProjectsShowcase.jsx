@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./ProjectsShowcase.css";
+import otherProjectsIcon from "../../assets/icons/OtherProjects.png";
 
 
 const featuredProjects = [
@@ -110,7 +111,10 @@ function ProjectsShowcase() {
 <div className="more-projects-section">
 
   <div className="more-projects-header">
-    <h2>More Projects</h2>
+    <h2 className="flex items-center gap-2">
+      <img src={otherProjectsIcon} alt="" className="w-6 h-6 object-contain" />
+      More Projects
+    </h2>
     <button>View All Projects →</button>
   </div>
 

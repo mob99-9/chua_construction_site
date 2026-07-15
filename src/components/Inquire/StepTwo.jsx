@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-function StepTwo({ formData, setFormData, onNext, onBack, isSubmitting, submitError }) {
+function StepTwo({ formData, setFormData, onNext, onBack }) {
   const [errors, setErrors] = useState({});
+  const [rateLimitError, setRateLimitError] = useState("");
 
   const validateField = (name, value) => {
     let error = "";
@@ -11,10 +12,12 @@ function StepTwo({ formData, setFormData, onNext, onBack, isSubmitting, submitEr
         error = "Project Description is required.";
       } else if (value.trim().length < 10) {
         error = "Project Description must be at least 10 characters.";
-      } else if (value.trim().length > 1000) {
-        error = "Project Description cannot exceed 1000 characters.";
-      } else if (/(.)\1{5,}/i.test(value)) {
+      } else if (value.trim().length > 500) {
+        error = "Project Description cannot exceed 500 characters.";
+      } else if (/(.)\\1{4,}/i.test(value)) {
         error = "Please avoid repeating characters.";
+      } else if (/(.{2,})\\1{3,}/i.test(value)) {
+        error = "Please avoid repeating words or phrases.";
       }
     }
 
@@ -50,6 +53,12 @@ function StepTwo({ formData, setFormData, onNext, onBack, isSubmitting, submitEr
     const { name, value } = e.target;
     let sanitizedValue = value;
 
+    // For project description: block if user is actively spamming (5+ consecutive same chars)
+    if (name === "projectDescription") {
+      // Strip any run of 5+ identical characters down to 4 to prevent spam buildup
+      sanitizedValue = value.replace(/(.)(\1{4})\1+/gi, "$1$2");
+    }
+
     // Filter estimated budget to allow only digits (positive integers only)
     if (name === "estimatedBudget") {
       sanitizedValue = value.replace(/\D/g, "");
@@ -59,15 +68,30 @@ function StepTwo({ formData, setFormData, onNext, onBack, isSubmitting, submitEr
     validateField(name, sanitizedValue);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    setRateLimitError("");
+
+    // Rate Limiter Check (60 seconds)
+    const lastSubmit = localStorage.getItem("quote_last_submit");
+    const now = Date.now();
+    if (lastSubmit && now - Number(lastSubmit) < 60000) {
+      const waitSeconds = Math.ceil((60000 - (now - Number(lastSubmit))) / 1000);
+      setRateLimitError(`Too many submissions. Please wait ${waitSeconds} seconds before trying again.`);
+      return;
+    }
+
     const isDescValid = validateField("projectDescription", formData.projectDescription);
     const isBudgetValid = validateField("estimatedBudget", formData.estimatedBudget);
     const isDateValid = validateField("expectedStartDate", formData.expectedStartDate);
 
-    if (isDescValid && isBudgetValid && isDateValid) {
-      await onNext();
+    if (!isDescValid || !isBudgetValid || !isDateValid) {
+      return;
     }
+
+    // Save timestamp & proceed
+    localStorage.setItem("quote_last_submit", String(Date.now()));
+    onNext();
   };
 
   return (
@@ -76,13 +100,25 @@ function StepTwo({ formData, setFormData, onNext, onBack, isSubmitting, submitEr
         <label>Project Description</label>
         <textarea
           name="projectDescription"
-          rows="10"
+          rows="8"
           value={formData.projectDescription}
           onChange={handleChange}
-          placeholder="Describe your project requirements (minimum 10 characters)..."
+          placeholder="Describe your project requirements (10–500 characters)..."
           className={errors.projectDescription ? "input-error" : ""}
-          maxLength={1000}
+          maxLength={500}
         ></textarea>
+
+        {/* Character counter */}
+        <div style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          fontSize: "12px",
+          color: formData.projectDescription.length > 450 ? "#ef4444" : "#9ca3af",
+          marginTop: "4px",
+        }}>
+          {formData.projectDescription.length} / 500
+        </div>
+
         {errors.projectDescription && (
           <span className="error-message-text">{errors.projectDescription}</span>
         )}
@@ -92,7 +128,7 @@ function StepTwo({ formData, setFormData, onNext, onBack, isSubmitting, submitEr
         <div className="form-group">
           <label>Estimated Project Budget (Optional)</label>
           <input
-            type="text" // Use text to block non-digits cleanly
+            type="text"
             name="estimatedBudget"
             value={formData.estimatedBudget}
             onChange={handleChange}
@@ -120,17 +156,30 @@ function StepTwo({ formData, setFormData, onNext, onBack, isSubmitting, submitEr
         </div>
       </div>
 
+      {rateLimitError && (
+        <div style={{
+          background: "#fef2f2",
+          border: "1px solid #fca5a5",
+          borderRadius: "8px",
+          padding: "12px 16px",
+          marginTop: "12px",
+          color: "#dc2626",
+          fontSize: "13px",
+          fontWeight: "600",
+        }}>
+          {rateLimitError}
+        </div>
+      )}
+
       <div className="form-actions">
         <button type="button" className="back-btn" onClick={onBack}>
           Back
         </button>
 
-        <button type="submit" className="next-btn" disabled={isSubmitting}>
-          {isSubmitting ? "Sending..." : "Next"}
+        <button type="submit" className="next-btn">
+          Next
         </button>
       </div>
-
-      {submitError && <span className="error-message-text">{submitError}</span>}
     </form>
   );
 }
