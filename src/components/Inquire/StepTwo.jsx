@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 
-function StepTwo({ formData, setFormData, onNext, onBack }) {
+function StepTwo({
+  formData,
+  setFormData,
+  onSubmit,
+  onBack,
+  isSubmitting,
+  submitError,
+}) {
   const [errors, setErrors] = useState({});
   const [rateLimitError, setRateLimitError] = useState("");
 
@@ -89,9 +96,9 @@ function StepTwo({ formData, setFormData, onNext, onBack }) {
       return;
     }
 
-    // Save timestamp & proceed
+    // Save timestamp & send the inquiry
     localStorage.setItem("quote_last_submit", String(Date.now()));
-    onNext();
+    onSubmit(formData);
   };
 
   return (
@@ -171,13 +178,28 @@ function StepTwo({ formData, setFormData, onNext, onBack }) {
         </div>
       )}
 
+      {submitError && (
+        <div style={{
+          background: "#fef2f2",
+          border: "1px solid #fca5a5",
+          borderRadius: "8px",
+          padding: "12px 16px",
+          marginTop: "12px",
+          color: "#dc2626",
+          fontSize: "13px",
+          fontWeight: "600",
+        }}>
+          {submitError}
+        </div>
+      )}
+
       <div className="form-actions">
         <button type="button" className="back-btn" onClick={onBack}>
           Back
         </button>
 
-        <button type="submit" className="next-btn">
-          Next
+        <button type="submit" className="next-btn" disabled={isSubmitting}>
+          {isSubmitting ? "Sending..." : "Send Request"}
         </button>
       </div>
     </form>
