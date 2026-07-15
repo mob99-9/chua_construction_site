@@ -61,102 +61,86 @@ export default function Testimonials() {
 
       {/* Heading */}
 
-      <div className="text-center mb-14">
+      <div className="text-center mb-12">
 
-        <p className="uppercase tracking-[4px] text-primary-orange font-bold text-sm flex items-center justify-center gap-2">
-          <img src={testimonialsIcon} alt="" className="w-5 h-5 object-contain" />
-          TESTIMONIALS
-        </p>
+        <h2 className="text-3xl md:text-[2.2rem] font-extrabold text-slate-900 flex items-center justify-center gap-3">
 
-        <h2 className="text-4xl md:text-5xl font-extrabold text-[#001286] mt-3">
+          <img
+            src={testimonialsIcon}
+            alt=""
+            className="w-9 h-9 object-contain"
+          />
+
           What Our Clients Say
+
         </h2>
 
-        <div className="w-24 h-1 bg-primary-orange rounded-full mx-auto mt-5"></div>
+        <div className="w-20 h-1 bg-[#F87400] rounded-full mx-auto mt-5"></div>
 
       </div>
 
-      <div className="flex justify-center">
+      <div className="max-w-[1500px] mx-auto px-6 mt-10">
 
         <div
           onMouseEnter={stopAutoPlay}
           onMouseLeave={startAutoPlay}
           className="
+            group
             grid
-            lg:grid-cols-[380px_663px]
+            lg:grid-cols-[40%_60%]
+            h-[300px]
+            md:h-[380px]
             overflow-hidden
-            rounded-[30px]
-            shadow-[0_25px_60px_rgba(0,0,0,.18)]
+            rounded-[32px]
+            shadow-2xl
             hover:-translate-y-2
             hover:shadow-[0_35px_70px_rgba(0,0,0,.25)]
             transition-all
             duration-500
-            max-w-[1043px]
+
             w-full
           "
         >
 
-          {/* LEFT */}
+          <div className="relative h-full overflow-hidden">
 
-          <div
-            className="
-              relative
-              h-[220px]
-              lg:h-[300px]
-              bg-cover
-              bg-center
-              flex
-              items-center
-              justify-center
-              text-center
-              px-8
-              overflow-hidden
-            "
-            style={{
-              backgroundImage: `url(${leftGraphic})`,
-            }}
-          >
+  {/* Background Image */}
+  <img
+    src={leftGraphic}
+    alt="Testimonials"
+    className="
+      absolute
+      inset-0
+      w-full
+      h-full
+      object-cover
+      transition-all
+      duration-700
+      group-hover:scale-105
+    "
+  />
 
-            {/* Background Zoom */}
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-[#001286]/55"></div>
 
-            <div
-              className="
-                absolute
-                inset-0
-                bg-cover
-                bg-center
-                transition-transform
-                duration-700
-                hover:scale-105
-              "
-              style={{
-                backgroundImage: `url(${leftGraphic})`,
-              }}
-            />
+  {/* Text */}
+  <div className="relative z-20 flex flex-col items-center justify-center h-full px-8 text-center">
 
-            {/* Overlay */}
+    <h2 className="text-3xl md:text-[2.2rem] font-extrabold text-white leading-tight">
+      It's always nice
+      <br />
+      to hear from you!
+    </h2>
 
-            <div className="absolute inset-0 bg-gradient-to-br from-[#001286]/65 via-[#001286]/35 to-black/20"></div>
+    <div className="w-20 h-1 bg-[#F87400] rounded-full mt-5"></div>
 
-            <div className="relative z-20">
+  </div>
 
-              <h2 className="font-script text-4xl lg:text-5xl text-primary-orange">
-                Testimonials
-              </h2>
-
-              <div className="w-20 h-1 bg-primary-orange rounded-full mx-auto my-3"></div>
-
-              <p className="text-2xl lg:text-[2rem] leading-tight font-semibold text-white drop-shadow-lg">
-                It's always nice to hear from you!
-              </p>
-
-            </div>
-
-          </div>
+</div>
 
           {/* RIGHT */}
 
-          <div className="relative h-[280px] lg:h-[300px] bg-gradient-to-br from-[#001286] to-[#001A6E] overflow-hidden group/slider">
+          <div className="relative h-full bg-gradient-to-br from-[#001286] to-[#001A6E] overflow-hidden group/slider">
 
             <img
               key={activeIndex}
@@ -171,7 +155,8 @@ export default function Testimonials() {
               "
             />
 
-            {/* Absolute navigation arrows */}
+            {/* Previous */}
+
             <button
               type="button"
               onClick={handlePrev}
@@ -198,10 +183,11 @@ export default function Testimonials() {
                 border-none
                 cursor-pointer
               "
-              aria-label="Previous slide"
             >
               <FaChevronLeft size={16} />
             </button>
+
+            {/* Next */}
 
             <button
               type="button"
@@ -229,12 +215,12 @@ export default function Testimonials() {
                 border-none
                 cursor-pointer
               "
-              aria-label="Next slide"
             >
               <FaChevronRight size={16} />
             </button>
 
-            {/* Dots Pagination */}
+            {/* Dots */}
+
             <div className="absolute bottom-6 left-6 flex gap-2.5 z-30">
               {slides.map((_, index) => (
                 <button
@@ -249,9 +235,12 @@ export default function Testimonials() {
                     duration-300
                     border-none
                     cursor-pointer
-                    ${activeIndex === index ? "bg-[#F87400] w-6" : "bg-white/40 hover:bg-white/70"}
+                    ${
+                      activeIndex === index
+                        ? "bg-[#F87400] w-6"
+                        : "bg-white/40 hover:bg-white/70"
+                    }
                   `}
-                  aria-label={`Go to slide ${index + 1}`}
                 />
               ))}
             </div>
