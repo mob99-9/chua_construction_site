@@ -19,27 +19,29 @@ function sendJson(res, status, payload) {
 
 function readJsonBody(req) {
   return new Promise((resolve, reject) => {
-    if (req.body) {
+    // 1. If an upstream middleware or runtime already parsed the body, use it immediately
+    if (req.body !== undefined && req.body !== null) {
+      if (typeof req.body === "object") return resolve(req.body);
       try {
-        resolve(typeof req.body === "string" ? JSON.parse(req.body) : req.body);
-        return;
+        return resolve(JSON.parse(req.body));
       } catch (error) {
-        reject(error);
-        return;
+        return reject(new Error("Malformed JSON body in req.body"));
       }
     }
 
     let data = "";
-
     req.on("data", (chunk) => {
       data += chunk;
     });
 
     req.on("end", () => {
+      if (!data.trim()) {
+        return resolve({}); // Return empty object safely if no body exists
+      }
       try {
-        resolve(data ? JSON.parse(data) : {});
+        resolve(JSON.parse(data));
       } catch (error) {
-        reject(error);
+        reject(new Error("Invalid JSON payload received from stream"));
       }
     });
 
