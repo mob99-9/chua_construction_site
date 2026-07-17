@@ -41,17 +41,17 @@ export default function Projects() {
     }
   ];
 
-
   return (
     <section id="projects" className="py-24 px-[5%] text-center bg-light-bg">
       <h2 className="text-4xl md:text-5xl font-extrabold mb-16 relative inline-block after:content-[''] after:absolute after:-bottom-3 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-primary-orange after:rounded-full">
         <img src={recentProjectsIcon} alt="" className="w-10 h-10 inline-block mr-3 align-bottom relative -top-1" />
         Recent Projects
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1200px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1200px] mx-auto">
         {projectsList.map((project, index) => (
           <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-light-gray hover:-translate-y-2 hover:shadow-2xl hover:border-primary-orange/40 transition-all duration-300 flex flex-col group">
-            <div className="aspect-square overflow-hidden bg-light-bg">
+            {/* Changed from aspect-square on mobile to nice landscape aspect-video/height */}
+            <div className="h-[200px] sm:h-[240px] md:h-auto md:aspect-square overflow-hidden bg-light-bg">
               <img 
                 src={project.image} 
                 alt={`${project.name} - ${project.desc}`} 

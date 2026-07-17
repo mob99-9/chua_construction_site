@@ -115,7 +115,7 @@ function ProjectsShowcase() {
       <img src={otherProjectsIcon} alt="" className="w-6 h-6 object-contain" />
       More Projects
     </h2>
-    <button>View All Projects →</button>
+    {/* <button>View All Projects →</button> */}
   </div>
 
   <div className="more-projects-grid">

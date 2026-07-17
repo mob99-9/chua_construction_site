@@ -133,33 +133,29 @@ function Navbar() {
         {/* Mobile Dropdown Panel */}
         {menuOpen && (
           <div className="mobile-dropdown-menu">
-            <NavLink
+            <Link
               to="/"
-              end
-              className={({ isActive }) =>
-                isActive ? "mobile-dropdown-link active" : "mobile-dropdown-link"
-              }
+              className={`mobile-dropdown-link ${
+                location.pathname === "/" ? "active" : ""
+              }`}
             >
               Home
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               to="/services"
-              className={({ isActive }) =>
-                isActive ? "mobile-dropdown-link active" : "mobile-dropdown-link"
-              }
+              className={`mobile-dropdown-link ${
+                location.pathname.startsWith("/services") ? "active" : ""
+              }`}
             >
               Services
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               to="/projects"
-              className={({ isActive }) =>
-                isActive ? "mobile-dropdown-link active" : "mobile-dropdown-link"
-              }
+              className={`mobile-dropdown-link ${
+                location.pathname.startsWith("/projects") ? "active" : ""
+              }`}
             >
               Projects
-            </NavLink>
-            <Link to="/inquire" className="mobile-dropdown-link quote-style">
-              Request a Quote
             </Link>
           </div>
         )}

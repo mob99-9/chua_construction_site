@@ -87,8 +87,9 @@ export default function Testimonials() {
           className="
             group
             grid
-            lg:grid-cols-[40%_60%]
-            h-[300px]
+            grid-cols-1
+            md:grid-cols-[40%_60%]
+            h-auto
             md:h-[380px]
             overflow-hidden
             rounded-[32px]
@@ -102,7 +103,7 @@ export default function Testimonials() {
           "
         >
 
-          <div className="relative h-full overflow-hidden">
+          <div className="relative h-[220px] md:h-full overflow-hidden">
 
   {/* Background Image */}
   <img
@@ -124,7 +125,7 @@ export default function Testimonials() {
   <div className="absolute inset-0 bg-[#001286]/55"></div>
 
   {/* Text */}
-  <div className="relative z-20 flex flex-col items-center justify-center h-full px-8 text-center">
+  <div className="relative z-20 flex flex-col items-center justify-center h-full px-8 py-6 text-center">
 
     <h2 className="text-3xl md:text-[2.2rem] font-extrabold text-white leading-tight">
       It's always nice
@@ -132,7 +133,7 @@ export default function Testimonials() {
       to hear from you!
     </h2>
 
-    <div className="w-20 h-1 bg-[#F87400] rounded-full mt-5"></div>
+    <div className="w-20 h-1 bg-[#F87400] rounded-full mt-4"></div>
 
   </div>
 
@@ -140,7 +141,7 @@ export default function Testimonials() {
 
           {/* RIGHT */}
 
-          <div className="relative h-full bg-gradient-to-br from-[#001286] to-[#001A6E] overflow-hidden group/slider">
+          <div className="relative h-[280px] md:h-full bg-gradient-to-br from-[#001286] to-[#001A6E] overflow-hidden group/slider">
 
             <img
               key={activeIndex}

@@ -81,6 +81,26 @@
   font-weight: 700;
 }
 
+.details-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #00062e;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 20px;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.details-back-btn:hover {
+  color: #f97400;
+  transform: translateX(-4px);
+}
+
 .details-main-img {
   width: 100%;
   height: 520px;

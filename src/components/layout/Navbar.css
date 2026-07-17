@@ -373,12 +373,16 @@ nav{
     }
 
     .mobile-quote-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+        text-align: center;
+        width: 114px;
         text-decoration: none;
         background: #ffffff;
         color: #f87400;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 700;
-        padding: 8px 14px;
+        padding: 8px 0;
         border-radius: 999px;
         border: 2px solid #f87400;
         transition: 0.25s;
