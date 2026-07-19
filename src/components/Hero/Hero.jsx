@@ -18,26 +18,8 @@ function Hero() {
 
       <div className="project-hero-container !z-20">
         <div className="project-hero-content">
-          <h1 className="flex flex-col select-none">
-            {/* Row 1: "With Experience" */}
-            <span className="flex items-baseline flex-wrap gap-x-3 justify-center">
-              <span className="text-white font-sans text-4xl sm:text-5xl md:text-6xl font-bold">
-                With
-              </span>
-              <span className="font-script text-[#f97316] leading-none text-7xl sm:text-8xl md:text-9xl">
-                Experience
-              </span>
-            </span>
-
-            {/* Row 2: "you can Trust!" */}
-            <span className="flex items-baseline flex-wrap gap-x-3 justify-center -mt-2">
-              <span className="text-white font-sans text-4xl sm:text-5xl md:text-6xl font-bold">
-                you can
-              </span>
-              <span className="font-script text-[#f97316] leading-none text-7xl sm:text-8xl md:text-9xl">
-                Trust!
-              </span>
-            </span>
+          <h1 className="flex flex-col select-none text-center justify-center">
+            WITH EXPERIENCE <br /> YOU CAN TRUST!
           </h1>
 
           <p className="text-white/95 text-lg md:text-2xl font-semibold mt-6 select-none font-sans">

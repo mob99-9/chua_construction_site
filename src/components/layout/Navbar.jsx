@@ -43,29 +43,6 @@ function Navbar() {
 
   return (
     <>
-      {/* ===== TOP BAR ===== */}
-      {!isInquiry && (
-        <div className={`top-bar ${scrolled ? "hide" : ""}`}>
-          <div className="top-content">
-            <div className="top-email">
-              <FaEnvelope />
-              <span>chuaconstruction@gmail.com</span>
-            </div>
-            <div className="top-socials">
-              <a href="#">
-                <FaFacebookF />
-              </a>
-              <a href="#">
-                <FaInstagram />
-              </a>
-              <a href="#">
-                <FaLinkedinIn />
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* ===== NAVBAR ===== */}
       <header
         className={`navbar ${scrolled ? "scrolled" : ""} ${

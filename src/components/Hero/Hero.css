@@ -45,17 +45,13 @@
 }
 
 .project-hero-content h1 {
-  font-size: clamp(3rem, 7vw, 6rem);
-  font-weight: 800;
-  line-height: 1;
-  margin: 0;
-}
-
-.project-hero-content h1 span {
+  font-family: var(--font-archivo);
   color: #f87400;
-  font-family: var(--font-script);
-  font-size: clamp(5rem, 10vw, 9rem);
-  font-weight: 700;
+  font-size: clamp(2.2rem, 5.5vw, 5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 .project-hero-content p {

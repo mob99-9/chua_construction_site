@@ -28,26 +28,8 @@ export default function Hero() {
             Blueprint Services
           </p>
 
-          <h1 className="flex flex-col select-none text-white leading-tight">
-            {/* Make your Dreams */}
-            <span className="flex items-baseline flex-wrap gap-x-3 justify-center">
-              <span className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold">
-                Make your
-              </span>
-              <span className="font-script text-[#f97316] leading-none text-7xl sm:text-8xl md:text-9xl">
-                Dreams
-              </span>
-            </span>
-
-            {/* come to Life! */}
-            <span className="flex items-baseline flex-wrap gap-x-3 justify-center -mt-2">
-              <span className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold">
-                come to
-              </span>
-              <span className="font-script text-[#f97316] leading-none text-7xl sm:text-8xl md:text-9xl">
-                Life!
-              </span>
-            </span>
+          <h1 className="font-archivo text-[#f97400] text-4xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[0.95] select-none tracking-tight uppercase">
+            MAKE YOUR DREAMS <br /> COME TO LIFE!
           </h1>
         </div>
       </div>

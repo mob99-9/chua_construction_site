@@ -24,26 +24,8 @@ export default function Hero() {
             Design Services
           </p>
 
-          <h1 className="flex flex-col select-none text-white leading-tight">
-            {/* Let's Design */}
-            <span className="flex items-baseline flex-wrap gap-x-3 justify-center">
-              <span className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold">
-                Let's
-              </span>
-              <span className="font-script text-[#f97316] leading-none text-7xl sm:text-8xl md:text-9xl">
-                Design
-              </span>
-            </span>
-
-            {/* your dream Project! */}
-            <span className="flex items-baseline flex-wrap gap-x-3 justify-center -mt-2">
-              <span className="font-sans text-4xl sm:text-5xl md:text-6xl font-bold">
-                your dream
-              </span>
-              <span className="font-script text-[#f97316] leading-none text-7xl sm:text-8xl md:text-9xl">
-                Project!
-              </span>
-            </span>
+          <h1 className="font-archivo text-[#f97400] text-4xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[0.95] select-none tracking-tight uppercase">
+            LET'S DESIGN <br /> YOUR DREAM PROJECT!
           </h1>
         </div>
       </div>

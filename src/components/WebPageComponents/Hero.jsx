@@ -30,29 +30,9 @@ export default function Hero() {
       <div className="relative z-20 w-full max-w-[1200px] h-full mx-auto px-[5%] flex flex-col justify-end pb-20">
 
         {/* Main headline */}
-        <div className="flex flex-col gap-0 select-none">
-
-          {/* Row 1: "Built on Trust" */}
-          <div className="flex items-baseline flex-wrap gap-x-3">
-            <span className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white font-sans">
-              Built on
-            </span>
-            <span className="font-script text-[#f97316] leading-none text-7xl sm:text-8xl md:text-9xl">
-              Trust
-            </span>
-          </div>
-
-          {/* Row 2: "Built to last" */}
-          <div className="flex items-baseline flex-wrap gap-x-3 -mt-2">
-            <span className="font-script text-[#f97316] leading-none text-7xl sm:text-8xl md:text-9xl">
-              Built
-            </span>
-            <span className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white font-sans">
-              to last
-            </span>
-          </div>
-
-        </div>
+        <h1 className="font-archivo text-[#f97400] text-4xl sm:text-6xl md:text-7xl lg:text-[85px] leading-[0.95] select-none tracking-tight uppercase">
+          BUILT ON TRUST <br /> BUILT TO LAST
+        </h1>
 
         {/* Tagline */}
         <p className="text-lg md:text-2xl font-medium mt-6 select-none text-white">
