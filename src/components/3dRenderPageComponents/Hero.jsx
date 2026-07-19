@@ -16,21 +16,38 @@ export default function Hero() {
       </video>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-black/25 z-10"></div>
 
-      {/* Bottom Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white to-transparent"></div>
+      {/* Top Gradient */}
+      <div className="absolute inset-x-0 top-0 z-20 h-56 bg-gradient-to-b from-[#00062E] via-[#00062E]/80 to-transparent" />
+
+      {/* Bottom Gradient */}
+      <div className="absolute inset-x-0 bottom-0 z-20 h-64 bg-gradient-to-t from-[#00062E]/95 via-[#00062E]/65 to-transparent" />
 
       {/* Hero Content */}
-      <div className="relative z-10 h-full max-w-[1200px] mx-auto px-6 flex items-center justify-center text-center">
-        <div className="max-w-[800px] mt-28 md:mt-36">
-          <p className="uppercase tracking-[0.35em] text-[#F87400] font-semibold text-sm mb-5 font-sans">
+      <div className="relative z-30 h-full max-w-[1200px] mx-auto px-[5%] flex flex-col justify-end pb-14 md:pb-16 lg:pb-20">
+        <div className="max-w-[760px]">
+          {/* Small Label */}
+          <p className="uppercase tracking-[0.3em] text-[#F97400] font-medium text-xs sm:text-sm mb-5">
             Portfolio
           </p>
 
-          <h1 className="font-archivo text-[#f97400] text-4xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[0.95] select-none tracking-tight uppercase">
-            DIGITALLY, <br /> BRING IT TO LIFE!
+          {/* Heading */}
+          <h1 className="font-archivo uppercase leading-[0.96] tracking-[-0.02em] font-semibold select-none">
+            <span className="block text-white text-[34px] sm:text-[46px] md:text-[58px] lg:text-[68px]">
+              DIGITALLY,
+            </span>
+
+            <span className="block text-white text-[34px] sm:text-[46px] md:text-[58px] lg:text-[68px] mt-1">
+              BRING IT TO{" "}
+              <span className="text-[#F97400] font-bold">
+                LIFE!
+              </span>
+            </span>
           </h1>
+
+          {/* Accent Line */}
+          <div className="w-14 h-[3px] rounded-full bg-[#F97400] mt-6" />
         </div>
       </div>
     </section>

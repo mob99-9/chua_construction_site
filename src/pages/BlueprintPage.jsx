@@ -7,7 +7,7 @@ export default function BlueprintPage() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <div className="w-full min-h-screen bg-white pt-24">
+    <div className="w-full min-h-screen bg-white">
       <Hero />
 
       <Gallery onImageClick={setSelectedImage} />

@@ -1,34 +1,51 @@
-import React from "react";
-import heroVideo from "../../assets/DesignPage/Hero Banner.mp4";
+import heroImage from "../../assets/hero_projectpage.png";
 
-export default function Hero() {
+function Hero() {
   return (
-    <section className="relative w-full h-[75vh] min-h-[600px] overflow-hidden">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src={heroVideo} type="video/mp4" />
-      </video>
+    <section
+      className="relative h-[90vh] min-h-[600px] w-full overflow-hidden bg-cover bg-center bg-no-repeat text-white"
+      style={{ backgroundImage: `url(${heroImage})` }}
+    >
+      {/* Top Gradient */}
+      <div className="absolute inset-x-0 top-0 z-10 h-56 bg-gradient-to-b from-[#00062E] via-[#00062E]/80 to-transparent pointer-events-none" />
 
-      <div className="absolute inset-0 bg-[#00062E]/65" />
+      {/* Bottom Gradient */}
+      <div className="absolute inset-x-0 bottom-0 z-10 h-64 bg-gradient-to-t from-[#00062E]/95 via-[#00062E]/65 to-transparent pointer-events-none" />
 
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-white to-transparent" />
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/20 z-10 pointer-events-none" />
 
-      <div className="relative z-10 h-full max-w-[1200px] mx-auto px-6 flex items-center justify-center text-center">
-        <div className="max-w-[800px] mt-28 md:mt-36">
-          <p className="uppercase tracking-[0.35em] text-[#F87400] font-semibold text-sm mb-5 font-sans">
-            Design Services
-          </p>
+      {/* Hero Content */}
+      <div className="relative z-20 h-full max-w-[1200px] mx-auto px-[5%] flex flex-col justify-end pb-14 md:pb-16 lg:pb-20">
+        <div className="max-w-[760px]">
+          {/* Heading */}
+          <h1 className="font-archivo uppercase leading-[0.96] tracking-[-0.02em] font-semibold select-none">
+            <span className="block text-white text-[34px] sm:text-[46px] md:text-[58px] lg:text-[68px]">
+              WITH EXPERIENCE
+            </span>
 
-          <h1 className="font-archivo text-[#f97400] text-4xl sm:text-6xl md:text-7xl lg:text-[80px] leading-[0.95] select-none tracking-tight uppercase">
-            LET'S DESIGN <br /> YOUR DREAM PROJECT!
+            <span className="block text-white text-[34px] sm:text-[46px] md:text-[58px] lg:text-[68px] mt-1">
+              YOU CAN{" "}
+              <span className="text-[#F97400] font-bold">
+                TRUST!
+              </span>
+            </span>
           </h1>
+
+          {/* Orange Accent */}
+          <div className="w-14 h-[3px] bg-[#F97400] rounded-full mt-6 mb-5" />
+
+          {/* Subtitle */}
+          <p className="max-w-[680px] text-sm sm:text-base md:text-lg lg:text-xl font-normal leading-relaxed tracking-wide text-white">
+            Homes, hotels, cafes,{" "}
+            <span className="text-[#F97400] font-semibold">
+              and More!
+            </span>
+          </p>
         </div>
       </div>
     </section>
   );
 }
+
+export default Hero;
