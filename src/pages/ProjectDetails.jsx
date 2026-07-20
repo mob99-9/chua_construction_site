@@ -1,6 +1,6 @@
 import "./ProjectDetails.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { MapPin, Calendar, X, ChevronLeft } from "lucide-react";
 import Navbar from "../components/layout/Navbar";
 
@@ -9,23 +9,136 @@ import buildingDetailsIcon from "../assets/icons/BuildingDetails.png";
 import photographsIcon from "../assets/icons/Photographs.png";
 import peopleBehindIcon from "../assets/icons/ThePeopleBehindIt.png";
 
+// Project metadata database
+const projectsData = {
+  "high-end-office-building": {
+    title: "High-End Office Building",
+    category: "Commercial Project",
+    image: "/project 1.jpg",
+    description: "An innovative, sustainable workspace design optimized for maximum productivity, sustainability, and functionality.",
+    location: "Mactan Channel, Cebu",
+    year: "2024",
+    gallery: ["/project 1.jpg", "/more2.png", "/more5.png", "/more6.png"],
+    details: {
+      type: "Commercial Office",
+      lotSize: "174 sqm.",
+      floors: "10 Floors",
+      companies: "5",
+      elevators: "2",
+      restrooms: "4",
+      facilities: "Lobby and Receiving Area"
+    },
+    features: [
+      { title: "Sustainable Design", desc: "Rainwater harvesting, solar shading, and eco-friendly materials." },
+      { title: "Natural Light", desc: "Large windows and open layouts maximize daylight and ventilation." },
+      { title: "Durable & Efficient", desc: "High-performance materials built for long-term use." }
+    ],
+    principalArchitect: "Arch. Sarah Chua",
+    projectTeam: "Engr. Robert Lee, Ar. Clara Santos"
+  },
+  "2-story-residence": {
+    title: "2 Story Residence",
+    category: "Residential Project",
+    image: "/project 2.jpg",
+    description: "A beautiful, modern residential home designed for a growing family, highlighting comfort, space efficiency, and contemporary style.",
+    location: "Banilad, Cebu City",
+    year: "2025",
+    gallery: ["/project 2.jpg", "/more1.png", "/more3.png", "/more4.png"],
+    details: {
+      type: "Residential House",
+      lotSize: "250 sqm.",
+      floors: "2 Floors",
+      companies: "N/A (Private)",
+      elevators: "0",
+      restrooms: "3",
+      facilities: "Garage, Backyard, and Balcony"
+    },
+    features: [
+      { title: "Family Centric", desc: "Spacious living spaces and cozy bedrooms tailored for active family life." },
+      { title: "Smart Home Integration", desc: "Equipped with modern energy-efficient automated features." },
+      { title: "Elegant Finishes", desc: "Premium wooden accents and high-end marble tiles throughout." }
+    ],
+    principalArchitect: "Arch. Jose Chua",
+    projectTeam: "Engr. Albert Tan, Ar. Lisa Cruz"
+  },
+  "1-story-church": {
+    title: "1 Story Church",
+    category: "Religious Project",
+    image: "/project 3.jpg",
+    description: "A serene house of worship designed with elegant structural arches, high ceilings for acoustic excellence, and abundant natural light.",
+    location: "Mandaue City, Cebu",
+    year: "2023",
+    gallery: ["/project 3.jpg", "/more2.png", "/more5.png", "/more6.png"],
+    details: {
+      type: "Religious Building",
+      lotSize: "400 sqm.",
+      floors: "1 Floor",
+      companies: "N/A",
+      elevators: "0",
+      restrooms: "2",
+      facilities: "Sanctuary, Office, and Multi-purpose Hall"
+    },
+    features: [
+      { title: "Acoustic Engineering", desc: "Special ceiling panels designed for clear sound propagation." },
+      { title: "High Ceilings", desc: "Spacious vertical volume to inspire peace and grandeur." },
+      { title: "Stained Glass", desc: "Beautiful custom glasswork that filters soft warm lighting." }
+    ],
+    principalArchitect: "Arch. Manuel Perez",
+    projectTeam: "Engr. Juan Dela Cruz, Ar. Maria Clara"
+  }
+};
+
+// Helper resolver for fallback dynamic generation
+const getProjectData = (id) => {
+  if (id && projectsData[id]) {
+    return projectsData[id];
+  }
+  
+  const title = id
+    ? id
+        .split("-")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ")
+    : "Project Details";
+    
+  return {
+    title: title,
+    category: id?.includes("residence") ? "Residential Project" : "Commercial Project",
+    image: id?.includes("1") ? "/project 1.jpg" : id?.includes("2") ? "/project 2.jpg" : "/project 3.jpg",
+    description: `A masterfully designed ${title} project built with durable materials, high energy efficiency, and modern design principles.`,
+    location: "Cebu, Philippines",
+    year: "2026",
+    gallery: ["/project 1.jpg", "/more2.png", "/more5.png", "/more6.png"],
+    details: {
+      type: id?.includes("residence") ? "Residential Structure" : "Commercial Structure",
+      lotSize: "180 sqm.",
+      floors: "2 Floors",
+      companies: "N/A",
+      elevators: "0",
+      restrooms: "2",
+      facilities: "Standard facilities"
+    },
+    features: [
+      { title: "Modern Design", desc: "Clean lines and aesthetic detailing suitable for urban living." },
+      { title: "Ventilation", desc: "Strategically placed windows and openings for maximum airflow." },
+      { title: "Quality Build", desc: "High standard materials and craftsmanship for long durability." }
+    ],
+    principalArchitect: "Arch. Jose Chua",
+    projectTeam: "Engr. Juan Dela Cruz, Ar. Maria Clara"
+  };
+};
+
 function ProjectDetails() {
+  const { id } = useParams();
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const projectTitle = "High-End Office Building";
-
-  const galleryImages = [
-    "/project 1.jpg",
-    "/more2.png",
-    "/more5.png",
-    "/more6.png",
-  ];
+  const project = getProjectData(id);
 
   const handleRequestQuote = () => {
     navigate("/inquire", {
       state: {
-        project: projectTitle,
+        project: project.title,
       },
     });
   };
@@ -45,27 +158,21 @@ function ProjectDetails() {
               <span className="text-[13px] tracking-wider uppercase font-sans font-bold">Back</span>
             </button>
 
-            <span className="details-category">Commercial Project</span>
+            <span className="details-category">{project.category}</span>
 
-            <h1>
-              High-End <br />
-              Office Building
-            </h1>
+            <h1>{project.title}</h1>
 
-            <p>
-              An innovative, sustainable workspace design optimized for maximum
-              productivity, sustainability, and functionality.
-            </p>
+            <p>{project.description}</p>
 
             <div className="details-meta">
               <span className="flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-[#f97400]" />
-                Mactan Channel, Cebu
+                {project.location}
               </span>
 
               <span className="flex items-center gap-2">
                 <Calendar className="w-5 h-5 text-[#f97400]" />
-                2024
+                {project.year}
               </span>
             </div>
 
@@ -82,8 +189,8 @@ function ProjectDetails() {
 
           <img
             className="details-main-img"
-            src="/project 1.jpg"
-            alt={projectTitle}
+            src={project.image}
+            alt={project.title}
           />
         </section>
 
@@ -94,15 +201,11 @@ function ProjectDetails() {
               Project Overview
             </h2>
 
-            <p>
-              Located in the heart of Mactan Channel, this high-end office
-              building addresses the challenges of rapid urban growth and site
-              topography.
-            </p>
+            <p>{project.description}</p>
 
             <p>
               The architectural concept emphasizes transparency, openness, and
-              connectivity.
+              connectivity, ensuring every element is aligned with aesthetic and functional targets.
             </p>
           </div>
 
@@ -113,13 +216,13 @@ function ProjectDetails() {
             </h2>
 
             <ul>
-              <li><b>Project Type:</b> Commercial Office</li>
-              <li><b>Total Lot Size:</b> 174 sqm.</li>
-              <li><b>No. of Floors:</b> 10 Floors</li>
-              <li><b>Companies/Floor:</b> 5</li>
-              <li><b>Elevators:</b> 2</li>
-              <li><b>Restrooms:</b> 4</li>
-              <li><b>Facilities:</b> Lobby and Receiving Area</li>
+              <li><b>Project Type:</b> {project.details.type}</li>
+              <li><b>Total Lot Size:</b> {project.details.lotSize}</li>
+              <li><b>No. of Floors:</b> {project.details.floors}</li>
+              <li><b>Companies/Floor:</b> {project.details.companies}</li>
+              <li><b>Elevators:</b> {project.details.elevators}</li>
+              <li><b>Restrooms:</b> {project.details.restrooms}</li>
+              <li><b>Facilities:</b> {project.details.facilities}</li>
             </ul>
           </aside>
         </section>
@@ -128,20 +231,12 @@ function ProjectDetails() {
           <h2>Key Features</h2>
 
           <div className="features-grid">
-            <div>
-              <h3>Sustainable Design</h3>
-              <p>Rainwater harvesting, solar shading, and eco-friendly materials.</p>
-            </div>
-
-            <div>
-              <h3>Natural Light</h3>
-              <p>Large windows and open layouts maximize daylight and ventilation.</p>
-            </div>
-
-            <div>
-              <h3>Durable & Efficient</h3>
-              <p>High-performance materials built for long-term use.</p>
-            </div>
+            {project.features.map((feature, idx) => (
+              <div key={idx}>
+                <h3>{feature.title}</h3>
+                <p>{feature.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -152,7 +247,7 @@ function ProjectDetails() {
           </h2>
 
           <div className="gallery-grid">
-            {galleryImages.map((image, index) => (
+            {project.gallery.map((image, index) => (
               <div
                 key={index}
                 className="gallery-hover-card"
@@ -177,12 +272,12 @@ function ProjectDetails() {
           <div className="people-grid">
             <div>
               <h3>Principal Architect</h3>
-              <p>[ Name ]</p>
+              <p>{project.principalArchitect}</p>
             </div>
 
             <div>
               <h3>Project Team</h3>
-              <p>[ Name 1, Name 2 ]</p>
+              <p>{project.projectTeam}</p>
             </div>
           </div>
         </section>
