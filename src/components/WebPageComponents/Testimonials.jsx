@@ -4,19 +4,19 @@ import testimonialsIcon from "../../assets/icons/Testimonials.png";
 
 import leftGraphic from "../../assets/image 16.png";
 
-import slideDefault from "../../assets/Testaments/Property 1=Default.png";
-import slideVariant2 from "../../assets/Testaments/Property 1=Variant2.png";
-import slideVariant3 from "../../assets/Testaments/Property 1=Variant3.png";
-import slideVariant4 from "../../assets/Testaments/Property 1=Variant4.png";
+import slide1 from "../../assets/Testaments/a61dd6dc-70c3-4bc9-9f85-08530b2b86a7.jpg";
+import slide2 from "../../assets/Testaments/b3d83406-fc9d-4079-b5ef-7d2a6e775034.jpg";
+import slide3 from "../../assets/Testaments/b260f1fe-0db5-46e4-b2e3-60af6e5a75bc.jpg";
+import slide4 from "../../assets/Testaments/d22e1b7f-6ebf-462e-9905-854ebeca4bdf.jpg";
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const slides = [
-    slideDefault,
-    slideVariant2,
-    slideVariant3,
-    slideVariant4,
+    slide1,
+    slide2,
+    slide3,
+    slide4,
   ];
 
   const autoPlayRef = useRef(null);
@@ -109,7 +109,7 @@ export default function Testimonials() {
 
           {/* LEFT PANEL */}
 
-          <div className="relative h-[240px] md:h-[420px] overflow-hidden">
+          <div className="relative h-[240px] md:h-[400px] overflow-hidden">
 
             <img
               src={leftGraphic}
@@ -146,7 +146,7 @@ export default function Testimonials() {
 
           {/* RIGHT PANEL */}
 
-          <div className="relative h-[300px] md:h-[420px] overflow-hidden bg-gradient-to-br from-[#483832] via-[#5A443A] to-[#3A2B24] group/slider">
+          <div className="relative w-full aspect-[2.2/1] md:aspect-none md:h-[400px] overflow-hidden bg-[#3A2B24] group/slider">
 
             <img
               key={activeIndex}
@@ -155,98 +155,70 @@ export default function Testimonials() {
               className="
                 w-full
                 h-full
-                object-contain
+                object-cover
+                scale-[1.03]
                 transition-all
                 duration-700
               "
             />
 
-            {/* Previous */}
+            {/* Slider Controls */}
 
-            <button
-              type="button"
-              onClick={handlePrev}
-              className="
-                absolute
-                left-5
-                top-1/2
-                -translate-y-1/2
-                w-11
-                h-11
-                rounded-full
-                bg-white/15
-                backdrop-blur-sm
-                hover:bg-[#D8B57A]
-                hover:text-[#483832]
-                text-white
-                flex
-                items-center
-                justify-center
-                transition-all
-                duration-300
-                opacity-100
-                lg:opacity-0
-                lg:group-hover/slider:opacity-100
-                z-30
-              "
-            >
-              <FaChevronLeft size={16} />
-            </button>
+            <div className="absolute bottom-2.5 right-2.5 sm:bottom-4 sm:right-4 flex items-center gap-2 z-30">
 
-            {/* Next */}
+              <button
+                type="button"
+                onClick={handlePrev}
+                className="
+                  w-7
+                  h-7
+                  sm:w-9
+                  sm:h-9
+                  rounded-full
+                  bg-black/50
+                  backdrop-blur-sm
+                  hover:bg-[#D8B57A]
+                  hover:text-[#483832]
+                  text-white
+                  flex
+                  items-center
+                  justify-center
+                  transition-all
+                  duration-300
+                  border-none
+                  cursor-pointer
+                  shadow-md
+                "
+              >
+                <FaChevronLeft className="text-[10px] sm:text-xs" />
+              </button>
 
-            <button
-              type="button"
-              onClick={handleNext}
-              className="
-                absolute
-                right-5
-                top-1/2
-                -translate-y-1/2
-                w-11
-                h-11
-                rounded-full
-                bg-white/15
-                backdrop-blur-sm
-                hover:bg-[#D8B57A]
-                hover:text-[#483832]
-                text-white
-                flex
-                items-center
-                justify-center
-                transition-all
-                duration-300
-                opacity-100
-                lg:opacity-0
-                lg:group-hover/slider:opacity-100
-                z-30
-              "
-            >
-              <FaChevronRight size={16} />
-            </button>
-
-            {/* Dots */}
-
-            <div className="absolute bottom-6 left-6 flex gap-3 z-30">
-
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => handleDotClick(index)}
-                  className={`
-                    h-3
-                    rounded-full
-                    transition-all
-                    duration-300
-                    ${
-                      activeIndex === index
-                        ? "bg-[#D8B57A] w-7"
-                        : "bg-white/40 hover:bg-white/70 w-3"
-                    }
-                  `}
-                />
-              ))}
+              <button
+                type="button"
+                onClick={handleNext}
+                className="
+                  w-7
+                  h-7
+                  sm:w-9
+                  sm:h-9
+                  rounded-full
+                  bg-black/50
+                  backdrop-blur-sm
+                  hover:bg-[#D8B57A]
+                  hover:text-[#483832]
+                  text-white
+                  flex
+                  items-center
+                  justify-center
+                  transition-all
+                  duration-300
+                  border-none
+                  cursor-pointer
+                  shadow-md
+                "
+              >
+                <FaChevronRight className="text-[10px] sm:text-xs" />
+              </button>
 
             </div>
 

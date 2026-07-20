@@ -6,10 +6,10 @@ import iconDesign from "../../assets/icons/Design.png";
 import iconRender from "../../assets/icons/3dRender.png";
 import iconBlueprint from "../../assets/icons/BluePrint.png";
 
-import iconResidential from "../../assets/icons/Residential.png";
-import iconCommercial from "../../assets/icons/Commercial.png";
-import iconOfficeSpace from "../../assets/icons/OfficeSpace.png";
-import iconReligious from "../../assets/icons/Religious.png";
+import iconResidential from "../../assets/icons/home 1.png";
+import iconCommercial from "../../assets/icons/home 1 (1).png";
+import iconOfficeSpace from "../../assets/icons/home 1 (2).png";
+import iconReligious from "../../assets/icons/home 1 (3).png";
 
 const getMainIcon = (title) => {
   if (title === "Design") return iconDesign;
@@ -83,18 +83,20 @@ export default function GallerySection({
             {categories.map((category) => (
               <section key={category.id}>
                 {/* Category Heading */}
-                <div className="mb-4 flex items-center">
-                  {getCategoryIcon(category.title) ? (
+                <div className="mb-4 flex items-center gap-3.5 w-full">
+                  {getCategoryIcon(category.title) && (
                     <img
                       src={getCategoryIcon(category.title)}
-                      alt={category.heading}
-                      className="h-10 object-contain md:h-12"
+                      alt=""
+                      className="h-6 w-6 object-contain shrink-0"
                     />
-                  ) : (
-                    <h3 className="text-3xl font-bold text-[#483832]">
-                      {category.heading}
-                    </h3>
                   )}
+
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#4E312D] whitespace-nowrap">
+                    {category.title}
+                  </h3>
+
+                  <div className="flex-1 h-[2px] bg-[#4E312D]/25 rounded-full" />
                 </div>
 
                 <p className="mb-8 mt-3 max-w-[760px] text-lg leading-8 text-[#6B5B52]">
