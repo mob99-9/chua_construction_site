@@ -39,7 +39,8 @@ export default function ProjectModal({
       flex
       items-center
       justify-center
-      p-6
+      p-4
+      sm:p-6
       animate-fadeIn
       "
     >
@@ -48,21 +49,51 @@ export default function ProjectModal({
         className="
         relative
         bg-white
-        rounded-[30px]
-        overflow-hidden
+        rounded-[24px]
+        sm:rounded-[30px]
         shadow-2xl
         w-full
-        max-w-6xl
-        max-h-[92vh]
-        grid
-        lg:grid-cols-2
+        max-w-5xl
+        max-h-[90vh]
+        flex
+        flex-col
+        lg:flex-row
+        overflow-hidden
         animate-scaleIn
         "
       >
-        {/* LEFT IMAGE */}
+        {/* Close Button - pinned at the top-right of the card */}
+        <button
+          onClick={onClose}
+          className="
+          absolute
+          top-4
+          right-4
+          z-[99]
+          bg-white/90
+          backdrop-blur-sm
+          w-10
+          h-10
+          sm:w-12
+          sm:h-12
+          rounded-full
+          shadow-md
+          hover:bg-orange-500
+          hover:text-white
+          transition-all
+          duration-300
+          flex
+          items-center
+          justify-center
+          border-none
+          cursor-pointer
+          "
+        >
+          <FaTimes className="text-lg" />
+        </button>
 
-        <div className="relative bg-gray-200">
-
+        {/* LEFT/TOP IMAGE COLUMN */}
+        <div className="relative w-full h-[200px] sm:h-[280px] lg:h-auto lg:w-[45%] shrink-0 overflow-hidden bg-gray-100">
           <img
             src={project.image}
             alt={project.title}
@@ -70,159 +101,147 @@ export default function ProjectModal({
             w-full
             h-full
             object-cover
-            min-h-[650px]
+            absolute
+            inset-0
             "
           />
 
-          {/* Previous */}
-
+          {/* Previous Button */}
           {onPrev && (
             <button
               onClick={onPrev}
               className="
               absolute
-              left-5
+              left-4
               top-1/2
               -translate-y-1/2
               bg-white/90
-              w-12
-              h-12
+              w-10
+              h-10
               rounded-full
               shadow-lg
               hover:bg-orange-500
               hover:text-white
               transition
+              flex
+              items-center
+              justify-center
+              border-none
+              cursor-pointer
+              z-20
               "
             >
-              <FaArrowLeft className="mx-auto" />
+              <FaArrowLeft />
             </button>
           )}
 
-          {/* Next */}
-
+          {/* Next Button */}
           {onNext && (
             <button
               onClick={onNext}
               className="
               absolute
-              right-5
+              right-4
               top-1/2
               -translate-y-1/2
               bg-white/90
-              w-12
-              h-12
+              w-10
+              h-10
               rounded-full
               shadow-lg
               hover:bg-orange-500
               hover:text-white
               transition
+              flex
+              items-center
+              justify-center
+              border-none
+              cursor-pointer
+              z-20
               "
             >
-              <FaArrowRight className="mx-auto" />
+              <FaArrowRight />
             </button>
           )}
         </div>
 
-        {/* RIGHT */}
-
-        <div className="relative p-12 overflow-y-auto">
-
-          {/* Close */}
-
-          <button
-            onClick={onClose}
-            className="
-            absolute
-            top-6
-            right-6
-            bg-gray-100
-            w-12
-            h-12
-            rounded-full
-            hover:bg-orange-500
-            hover:text-white
-            transition
-            "
-          >
-            <FaTimes className="mx-auto" />
-          </button>
-
-          <span className="uppercase tracking-[5px] text-orange-500 font-semibold">
+        {/* RIGHT/BOTTOM DETAILS COLUMN */}
+        <div className="flex-1 p-6 sm:p-10 lg:p-12 overflow-y-auto pr-16 lg:pr-12">
+          <span className="uppercase tracking-[3px] sm:tracking-[5px] text-xs sm:text-sm text-orange-500 font-semibold block">
             {project.service}
           </span>
 
-          <h2 className="text-5xl font-bold text-[#001186] mt-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-[2.6rem] font-bold text-[#001186] mt-3 sm:mt-4 leading-tight">
             {project.title}
           </h2>
 
-          <p className="text-gray-600 leading-8 mt-8">
+          <p className="text-gray-600 leading-relaxed text-sm sm:text-base mt-4 sm:mt-6">
             {project.description}
           </p>
 
-          <div className="grid grid-cols-2 gap-8 mt-12">
-
+          <div className="grid grid-cols-2 gap-4 sm:gap-8 mt-6 sm:mt-8">
             <div>
-              <p className="text-sm text-gray-400">Category</p>
-              <h4 className="font-semibold mt-2">
+              <p className="text-xs text-gray-400">Category</p>
+              <h4 className="font-semibold text-sm sm:text-base mt-1">
                 {project.category}
               </h4>
             </div>
 
             <div>
-              <p className="text-sm text-gray-400">Status</p>
-              <h4 className="font-semibold mt-2">
+              <p className="text-xs text-gray-400">Status</p>
+              <h4 className="font-semibold text-sm sm:text-base mt-1">
                 Completed
               </h4>
             </div>
 
             <div>
-              <p className="text-sm text-gray-400">Software</p>
-              <h4 className="font-semibold mt-2">
+              <p className="text-xs text-gray-400">Software</p>
+              <h4 className="font-semibold text-sm sm:text-base mt-1">
                 AutoCAD • SketchUp • Lumion
               </h4>
             </div>
 
             <div>
-              <p className="text-sm text-gray-400">Year</p>
-              <h4 className="font-semibold mt-2">
+              <p className="text-xs text-gray-400">Year</p>
+              <h4 className="font-semibold text-sm sm:text-base mt-1">
                 2026
               </h4>
             </div>
-
           </div>
 
-          <div className="mt-12 pt-8 border-t">
-
-            <h3 className="text-xl font-bold text-[#001186] flex items-center gap-2">
-              <img src={projectOverviewIcon} alt="" className="w-6 h-6 object-contain" />
+          <div className="mt-8 pt-6 border-t border-gray-100">
+            <h3 className="text-lg sm:text-xl font-bold text-[#001186] flex items-center gap-2">
+              <img src={projectOverviewIcon} alt="" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
               Project Overview
             </h3>
 
-            <p className="text-gray-600 leading-8 mt-4">
+            <p className="text-gray-600 leading-relaxed text-sm sm:text-base mt-3">
               This project demonstrates our commitment to
               functionality, aesthetics, and quality design.
               Every space is carefully planned to maximize
               usability while maintaining a clean and timeless
               architectural style.
             </p>
-
           </div>
 
-          <div className="flex gap-5 mt-12">
-
+          <div className="flex flex-wrap gap-4 mt-8 pt-4">
             <button
-              onClick={() =>
-                navigate(`/projects/${project.id}`)
-              }
+              onClick={() => navigate(`/projects/${project.id}`)}
               className="
               bg-orange-500
               hover:bg-orange-600
               text-white
-              px-8
-              py-3
+              px-6
+              sm:px-8
+              py-2.5
+              sm:py-3
               rounded-full
               font-semibold
               transition
+              text-sm
+              sm:text-base
+              border-none
+              cursor-pointer
               "
             >
               Read More →
@@ -233,20 +252,23 @@ export default function ProjectModal({
               className="
               border
               border-gray-300
-              px-8
-              py-3
+              px-6
+              sm:px-8
+              py-2.5
+              sm:py-3
               rounded-full
               hover:border-black
               transition
+              text-sm
+              sm:text-base
+              bg-transparent
+              cursor-pointer
               "
             >
               Close
             </button>
-
           </div>
-
         </div>
-
       </div>
     </div>
   );

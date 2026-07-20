@@ -1,7 +1,7 @@
 import "./ProjectDetails.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { MapPin, Calendar, X } from "lucide-react";
+import { MapPin, Calendar, X, ChevronLeft } from "lucide-react";
 import Navbar from "../components/layout/Navbar";
 
 import readProjectIcon from "../assets/icons/ReadAboutOurImpressiveProjects.png";
@@ -37,6 +37,14 @@ function ProjectDetails() {
       <main className="project-details-page pt-24">
         <section className="details-hero">
           <div className="details-content">
+            <button
+              onClick={() => navigate(-1)}
+              className="flex items-center gap-1.5 text-slate-500 hover:text-[#f97400] transition-colors font-semibold mb-5 bg-transparent border-none cursor-pointer group p-0"
+            >
+              <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" />
+              <span className="text-[13px] tracking-wider uppercase font-sans font-bold">Back</span>
+            </button>
+
             <span className="details-category">Commercial Project</span>
 
             <h1>
