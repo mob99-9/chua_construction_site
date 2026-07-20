@@ -18,29 +18,35 @@ export default function ServicesOffer() {
   return (
     <section
       id="services"
-      className="pt-16 pb-6 px-[5%] bg-white text-center flex flex-col items-center"
+      className="bg-[#F8F5F1] pt-20 pb-10 px-[5%] flex flex-col items-center text-center"
     >
       {/* Heading */}
 
-      <h2 className="text-[#F87400] text-4xl md:text-5xl font-extrabold mb-4 flex items-center justify-center gap-4">
+      <h2 className="flex items-center justify-center gap-4 text-4xl md:text-5xl font-bold text-[#483832]">
 
-        <FaQuestionCircle className="text-[#F87400] text-4xl md:text-5xl" />
+        <FaQuestionCircle className="text-[#D8B57A] text-4xl md:text-5xl" />
 
         What services do we offer?
 
       </h2>
 
+      {/* Accent Line */}
+
+      <div className="w-24 h-[3px] bg-[#D8B57A] rounded-full mt-5 mb-8" />
+
       {/* Description */}
 
-      <p className="text-slate-900 text-xl sm:text-[1.75rem] font-medium mb-12 max-w-[800px]">
-        Here in <span className="text-[#F87400] font-bold">CHUA</span> we offer
-        the following services:
+      <p className="max-w-[850px] text-lg md:text-[1.45rem] leading-9 text-[#6B5B52]">
+
+        Here at{" "}
+        <span className="font-bold text-[#483832]">
+          CHUA
+        </span>
+        , we provide complete architectural and construction solutions—from
+        planning and visualization to construction-ready documentation—all
+        tailored to bring your vision to life.
+
       </p>
-
-      {/* Clickable tabs */}
-
-      <div className="flex flex-col sm:flex-row gap-8 sm:gap-16 justify-center items-center">
-      </div>
 
     </section>
   );

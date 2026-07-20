@@ -3,11 +3,12 @@
   max-width: 88vw;
   min-height: 580px;
   background: #ffffff;
+  border: 1px solid #e8ded3;
   border-radius: 18px;
   padding: 34px 48px 40px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 28px 70px rgba(72, 56, 50, 0.18);
 }
 
 .quote-logo {
@@ -28,7 +29,7 @@
   font-size: 30px;
   font-weight: 700;
   line-height: 100%;
-  color: #00062e;
+  color: #483832;
   text-align: center;
   margin: 0 0 28px;
 }
@@ -53,21 +54,25 @@
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: #00062e;
+  color: #483832;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  border: 2px solid #00062e;
+  border: 1.5px solid #cdbfaf;
   border-radius: 8px;
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
   font-size: 14px;
-  color: #00062e;
+  color: #483832;
   background: #ffffff;
   outline: none;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .form-group input,
@@ -85,15 +90,22 @@
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #00062e;
+  color: #6b5b52;
   opacity: 0.65;
+}
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+  border-color: #d8b57a;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: #ff8a00;
-  box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.14);
+  border-color: #d8b57a;
+  box-shadow: 0 0 0 3px rgba(216, 181, 122, 0.2);
+  background: #fffdfb;
 }
 
 .form-row {
@@ -108,16 +120,20 @@
   margin: 18px auto 0;
   border: none;
   background: transparent;
-  color: #ff8a00;
+  color: #d8b57a;
   font-family: "Inter", sans-serif;
   font-size: 18px;
   font-weight: 700;
   cursor: pointer;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .next-btn:hover,
 .back-btn:hover {
-  color: #00062e;
+  color: #483832;
+  transform: translateY(-1px);
 }
 
 .form-actions {
@@ -146,7 +162,7 @@
   font-size: 19.2px;
   line-height: 1.35;
   letter-spacing: 0;
-  color: #000000;
+  color: #6b5b52;
   margin: 0;
 }
 
@@ -166,7 +182,7 @@
   font-size: 38.4px;
   line-height: 100%;
   letter-spacing: 0;
-  color: #f97400;
+  color: #d8b57a;
   margin: 0 0 95px;
 }
 
@@ -174,16 +190,19 @@
   margin-top: 0;
   background: none;
   border: none;
-  color: #f97400;
+  color: #d8b57a;
   font-family: "Inter", sans-serif;
   font-size: 22px;
   font-weight: 700;
   cursor: pointer;
-  transition: 0.25s;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .success-message .back-btn:hover {
-  color: #00062e;
+  color: #483832;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
@@ -197,6 +216,10 @@
     gap: 0;
   }
 
+  .success-message {
+    padding: 20px 10px 10px;
+  }
+
   .success-message p {
     font-size: 17px;
   }
@@ -205,10 +228,14 @@
     font-size: 34px;
     margin-bottom: 70px;
   }
+
+  .form-actions {
+    gap: 40px;
+  }
 }
 
 .error-message-text {
-  color: #e53e3e;
+  color: #b94a48;
   font-size: 12px;
   font-weight: 500;
   margin-top: 4px;
@@ -218,5 +245,6 @@
 .form-group input.input-error,
 .form-group select.input-error,
 .form-group textarea.input-error {
-  border-color: #e53e3e;
+  border-color: #b94a48;
+  box-shadow: 0 0 0 3px rgba(185, 74, 72, 0.12);
 }

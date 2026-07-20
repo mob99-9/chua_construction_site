@@ -49,11 +49,11 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="bg-white py-24 px-[5%]"
+      className="bg-[#F8F5F1] py-24 px-[5%]"
     >
       {/* Heading */}
-      <div className="text-center max-w-3xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-dark-navy flex justify-center items-center gap-3">
+      <div className="max-w-3xl mx-auto text-center">
+        <h2 className="flex items-center justify-center gap-3 text-4xl md:text-5xl font-bold text-[#483832]">
           <img
             src={mostBookedIcon}
             alt=""
@@ -62,9 +62,9 @@ export default function Services() {
           Most Booked Services
         </h2>
 
-        <div className="w-24 h-1 bg-primary-orange rounded-full mx-auto mt-5 mb-6" />
+        <div className="w-24 h-[3px] bg-[#D8B57A] rounded-full mx-auto mt-5 mb-6" />
 
-        <p className="text-gray-text text-lg">
+        <p className="text-[#6B5B52] text-lg leading-8">
           From concept to construction, we bring your vision to life through
           professional architectural and engineering services.
         </p>
@@ -79,30 +79,66 @@ export default function Services() {
             <Link
               key={index}
               to={service.route}
-              className="group bg-white rounded-3xl border border-gray-200 hover:border-primary-orange/40 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 p-8 no-underline flex flex-col"
+              className="
+                group
+                flex
+                flex-col
+                rounded-[30px]
+                bg-white
+                border
+                border-[#E8DED3]
+                p-8
+                no-underline
+                transition-all
+                duration-500
+                hover:-translate-y-2
+                hover:border-[#D8B57A]/50
+                shadow-[0_16px_40px_rgba(72,56,50,0.10)]
+                hover:shadow-[0_26px_60px_rgba(72,56,50,0.18)]
+              "
             >
               {/* Icon */}
-              <div className="mx-auto w-28 h-28 rounded-full bg-orange-50 flex items-center justify-center group-hover:bg-primary-orange transition-all duration-300">
+              <div
+                className="
+                  mx-auto
+                  flex
+                  h-28
+                  w-28
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-[#F6EFE7]
+                  transition-all
+                  duration-500
+                  group-hover:bg-[#483832]
+                "
+              >
                 <Icon
-                  size={58}
-                  className="text-primary-orange group-hover:text-white transition-colors duration-300"
+                  size={56}
+                  className="
+                    text-[#D8B57A]
+                    transition-colors
+                    duration-500
+                    group-hover:text-white
+                  "
                 />
               </div>
 
               {/* Title */}
-              <h3 className="mt-8 text-3xl font-bold text-center text-dark-navy">
+              <h3 className="mt-8 text-center text-[32px] font-bold text-[#483832]">
                 {service.name}
               </h3>
 
-              <div className="w-14 h-1 bg-primary-orange rounded-full mx-auto mt-4 mb-6" />
+              {/* Accent */}
+              <div className="w-14 h-[3px] bg-[#D8B57A] rounded-full mx-auto mt-4 mb-6 transition-all duration-500 group-hover:w-24" />
 
               {/* Description */}
-              <p className="text-center text-gray-text leading-7 min-h-[90px]">
+              <p className="min-h-[90px] text-center leading-7 text-[#6B5B52]">
                 {service.desc}
               </p>
 
               {/* Divider */}
-              <div className="border-t border-gray-200 my-8" />
+              <div className="my-8 border-t border-[#EFE6DC]" />
 
               {/* Features */}
               <div className="space-y-4">
@@ -113,10 +149,10 @@ export default function Services() {
                   >
                     <CheckCircle2
                       size={20}
-                      className="text-primary-orange flex-shrink-0"
+                      className="text-[#D8B57A] flex-shrink-0"
                     />
 
-                    <span className="text-dark-navy font-medium">
+                    <span className="font-medium text-[#483832]">
                       {feature}
                     </span>
                   </div>

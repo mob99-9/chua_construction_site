@@ -78,23 +78,23 @@ export default function About() {
 
 
   return (
-    <section id="about" className="overflow-hidden bg-white text-[#00062e]">
+    <section id="about" className="overflow-hidden bg-white text-[#483832]">
       {/* Banner */}
       <div className="mx-auto mt-6 max-w-[1500px] px-4 sm:px-6 lg:mt-10">
-        <div className="group relative min-h-[420px] overflow-hidden rounded-2xl bg-[#00062e] shadow-[0_24px_70px_rgba(0,6,46,0.25)] md:min-h-[520px] lg:rounded-[30px]">
+        <div className="group relative min-h-[420px] overflow-hidden rounded-2xl bg-[#483832] shadow-[0_24px_70px_rgba(0,6,46,0.25)] md:min-h-[520px] lg:rounded-[30px]">
           <img
             src={heroConstruction}
             alt="CHUA Construction project"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-r from-[#00062e]/95 via-[#00062e]/75 to-[#00062e]/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#00062e]/70 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#483832]/95 via-[#483832]/75 to-[#483832]/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#483832]/70 via-transparent to-transparent" />
 
           <div className="relative z-10 flex min-h-[420px] items-center px-7 py-14 sm:px-12 md:min-h-[520px] lg:px-20">
             <div className="max-w-3xl">
               <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur-md">
-                <span className="h-2 w-2 rounded-full bg-[#f87400]" />
+                <span className="h-2 w-2 rounded-full bg-[#D8B57A]" />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-white sm:text-sm">
                   Building with purpose since 2020
                 </span>
@@ -129,7 +129,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0 h-1.5 w-full bg-[#f87400]" />
+          <div className="absolute bottom-0 left-0 h-1.5 w-full bg-[#D8B57A]" />
         </div>
       </div>
 
@@ -138,24 +138,24 @@ export default function About() {
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
           <div>
             <div className="mb-5 flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f87400] text-white shadow-lg shadow-orange-500/20">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#D8B57A] text-white shadow-lg shadow-orange-500/20">
                 <Building2 size={25} />
               </div>
 
-              <p className="font-bold uppercase tracking-[0.18em] text-[#f87400]">
+              <p className="font-bold uppercase tracking-[0.18em] text-[#D8B57A]">
                 Company overview
               </p>
             </div>
 
-            <h2 className="text-4xl font-extrabold leading-tight text-[#00062e] sm:text-5xl">
+            <h2 className="text-4xl font-extrabold leading-tight text-[#483832] sm:text-5xl">
               From vision to enduring reality
             </h2>
 
-            <div className="mt-6 h-1 w-24 rounded-full bg-[#f87400]" />
+            <div className="mt-6 h-1 w-24 rounded-full bg-[#D8B57A]" />
 
-            <div className="mt-8 space-y-6 text-base leading-8 text-slate-600 sm:text-lg">
+            <div className="mt-8 space-y-6 text-base leading-8 text-[#6B5B52] sm:text-lg">
               <p>
-                <strong className="font-bold text-[#00062e]">
+                <strong className="font-bold text-[#483832]">
                   Chua Constructions
                 </strong>{" "}
                 is a Filipino-led, full-service architectural and construction
@@ -187,16 +187,16 @@ export default function About() {
                 <div key={item} className="flex items-center gap-3">
                   <CheckCircle2
                     size={20}
-                    className="shrink-0 text-[#f87400]"
+                    className="shrink-0 text-[#D8B57A]"
                   />
-                  <span className="font-semibold text-slate-700">{item}</span>
+                  <span className="font-semibold text-[#5A4A42]">{item}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="relative">
-            <div className="absolute -left-5 -top-5 hidden h-28 w-28 rounded-3xl border-2 border-[#f87400]/25 lg:block" />
+            <div className="absolute -left-5 -top-5 hidden h-28 w-28 rounded-3xl border-2 border-[#D8B57A]/25 lg:block" />
 
             <div className="relative overflow-hidden rounded-[28px] shadow-[0_28px_65px_rgba(0,6,46,0.2)]">
               <img
@@ -205,10 +205,10 @@ export default function About() {
                 className="h-[420px] w-full object-cover sm:h-[520px]"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#00062e]/85 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#483832]/85 via-transparent to-transparent" />
 
               <div className="absolute bottom-0 left-0 right-0 p-7 sm:p-9">
-                <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#f87400]">
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#D8B57A]">
                   Architecture and construction
                 </p>
                 <p className="mt-2 text-2xl font-bold text-white sm:text-3xl">
@@ -217,7 +217,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="absolute -bottom-7 -right-4 rounded-2xl bg-[#f87400] px-7 py-5 text-white shadow-xl sm:-right-7">
+            <div className="absolute -bottom-7 -right-4 rounded-2xl bg-[#D8B57A] px-7 py-5 text-white shadow-xl sm:-right-7">
               <p className="text-3xl font-extrabold">5+</p>
               <p className="text-xs font-bold uppercase tracking-wider">
                 Years building
@@ -228,18 +228,18 @@ export default function About() {
       </div>
 
       {/* Core values */}
-      <div className="bg-[#f6f8fc]">
+      <div className="bg-[#F8F5F1]">
         <div className="mx-auto max-w-[1400px] px-5 py-20 sm:px-8 lg:py-24">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="font-bold uppercase tracking-[0.2em] text-[#f87400]">
+            <p className="font-bold uppercase tracking-[0.2em] text-[#D8B57A]">
               What guides our work
             </p>
 
-            <h2 className="mt-4 text-4xl font-extrabold text-[#00062e] sm:text-5xl">
+            <h2 className="mt-4 text-4xl font-extrabold text-[#483832] sm:text-5xl">
               Our core values
             </h2>
 
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className="mt-5 text-lg leading-8 text-[#6B5B52]">
               Every project is guided by strong standards, responsible
               collaboration, and a commitment to delivering lasting value.
             </p>
@@ -249,19 +249,19 @@ export default function About() {
             {values.map(({ icon: Icon, title, description }) => (
               <article
                 key={title}
-                className="group rounded-2xl border border-slate-200 bg-white p-7 shadow-[0_12px_35px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-2 hover:border-[#f87400]/40 hover:shadow-[0_22px_45px_rgba(0,6,46,0.12)]"
+                className="group rounded-2xl border border-[#E6DDD4] bg-white p-7 shadow-[0_12px_35px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-2 hover:border-[#D8B57A]/40 hover:shadow-[0_22px_45px_rgba(0,6,46,0.12)]"
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#00062e] text-white transition duration-300 group-hover:bg-[#f87400]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#483832] text-white transition duration-300 group-hover:bg-[#D8B57A]">
                   <Icon size={29} />
                 </div>
 
-                <h3 className="mt-6 text-xl font-extrabold text-[#00062e]">
+                <h3 className="mt-6 text-xl font-extrabold text-[#483832]">
                   {title}
                 </h3>
 
-                <div className="my-4 h-1 w-12 rounded-full bg-[#f87400]" />
+                <div className="my-4 h-1 w-12 rounded-full bg-[#D8B57A]" />
 
-                <p className="leading-7 text-slate-600">{description}</p>
+                <p className="leading-7 text-[#6B5B52]">{description}</p>
               </article>
             ))}
           </div>
@@ -269,19 +269,19 @@ export default function About() {
       </div>
 
       {/* Why choose CHUA */}
-      <div className="relative overflow-hidden bg-[#00062e]">
+      <div className="relative overflow-hidden bg-[#483832]">
         <div className="absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full border border-white/5" />
-        <div className="absolute -right-20 -top-20 h-[300px] w-[300px] rounded-full border border-[#f87400]/10" />
+        <div className="absolute -right-20 -top-20 h-[300px] w-[300px] rounded-full border border-[#D8B57A]/10" />
 
         <div className="relative mx-auto max-w-[1400px] px-5 py-20 sm:px-8 lg:py-28">
           <div className="mx-auto mb-16 max-w-4xl text-center">
-            <p className="font-bold uppercase tracking-[0.2em] text-[#f87400]">
+            <p className="font-bold uppercase tracking-[0.2em] text-[#D8B57A]">
               Why choose us
             </p>
 
             <h2 className="mt-4 text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
               Why should you choose{" "}
-              <span className="text-[#f87400]">CHUA?</span>
+              <span className="text-[#D8B57A]">CHUA?</span>
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/65">
@@ -307,12 +307,12 @@ export default function About() {
                 >
                   <div className={reverse ? "lg:order-2" : ""}>
                     <div className="mb-6 flex items-center gap-5">
-                      <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[#f87400] text-white shadow-lg shadow-orange-500/20 sm:h-20 sm:w-20">
+                      <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[#D8B57A] text-white shadow-lg shadow-orange-500/20 sm:h-20 sm:w-20">
                         <Icon size={34} />
                       </div>
 
                       <div>
-                        <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#f87400]">
+                        <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#D8B57A]">
                           {eyebrow}
                         </p>
                         <h3 className="mt-1 text-3xl font-extrabold leading-tight text-white sm:text-4xl">
@@ -321,7 +321,7 @@ export default function About() {
                       </div>
                     </div>
 
-                    <div className="mb-6 h-1 w-20 rounded-full bg-[#f87400]" />
+                    <div className="mb-6 h-1 w-20 rounded-full bg-[#D8B57A]" />
 
                     <p className="max-w-xl text-base leading-8 text-white/70 sm:text-lg">
                       {description}
@@ -340,8 +340,8 @@ export default function About() {
                       style={{ objectPosition: imagePosition }}
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#00062e]/55 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 h-1.5 w-full bg-[#f87400]" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#483832]/55 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 h-1.5 w-full bg-[#D8B57A]" />
                   </div>
                 </article>
               )

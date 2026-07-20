@@ -2,6 +2,7 @@ import { useState } from "react";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import Success from "./Success";
+import logo from "../../assets/logo.png";
 import { submitInquiry } from "../../api/user-api";
 import "./InquiryForm.css";
 
@@ -55,7 +56,7 @@ function InquiryForm() {
   return (
     <section className="quote-card">
       <div className="quote-logo">
-        <img src="/arki-logo.png" alt="ARKI Construction Company" />
+        <img src={logo} alt="ARKI Construction Company" />
       </div>
 
       <h1>Request Quote</h1>

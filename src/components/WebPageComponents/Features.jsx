@@ -10,8 +10,9 @@ export default function Features() {
       desc: "Detailed blueprints for your convenience",
       script: "Let's build together!",
       bg: featImg1,
-      color: "text-[#ff9705]",
-      overlay: "bg-gradient-to-br from-[#001286]/65 via-[#001286]/45 to-[#001286]/20",
+      color: "text-[#D8B57A]",
+      overlay:
+        "bg-gradient-to-br from-[#483832]/75 via-[#483832]/50 to-[#483832]/20",
       icon: (
         <svg
           width="48"
@@ -36,8 +37,9 @@ export default function Features() {
       desc: "From floor plans to construction",
       script: "We're here for you!",
       bg: featImg2,
-      color: "text-[#2a40d1]",
-      overlay: "bg-gradient-to-br from-[#F87400]/65 via-[#F87400]/45 to-transparent",
+      color: "text-[#D8B57A]",
+      overlay:
+        "bg-gradient-to-br from-[#483832]/75 via-[#483832]/50 to-[#483832]/20",
       icon: (
         <svg
           width="48"
@@ -65,8 +67,9 @@ export default function Features() {
       desc: "A design that is truly yours",
       script: "Let's design together!",
       bg: featImg3,
-      color: "text-[#ff9705]",
-      overlay: "bg-gradient-to-br from-[#001286]/65 via-[#001286]/45 to-[#001286]/20",
+      color: "text-[#D8B57A]",
+      overlay:
+        "bg-gradient-to-br from-[#483832]/75 via-[#483832]/50 to-[#483832]/20",
       icon: (
         <svg
           width="48"
@@ -89,7 +92,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-16 px-[5%] bg-white">
+    <section className="py-20 px-[5%] bg-[#F8F5F1]">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-[1200px] mx-auto">
         {featuresList.map((feat, index) => (
           <div
@@ -97,16 +100,16 @@ export default function Features() {
             className="
               group
               relative
-              h-[260px]
-              sm:h-[280px]
-              rounded-[24px]
+              h-[280px]
+              sm:h-[300px]
+              rounded-[28px]
               overflow-hidden
-              shadow-[0_15px_35px_rgba(0,6,46,0.12)]
+              shadow-[0_18px_45px_rgba(72,56,50,0.18)]
               cursor-pointer
               transition-all
               duration-500
               hover:-translate-y-2
-              hover:shadow-[0_25px_50px_rgba(0,6,46,0.22)]
+              hover:shadow-[0_28px_60px_rgba(72,56,50,0.28)]
             "
           >
             {/* Background */}
@@ -119,7 +122,7 @@ export default function Features() {
                 w-full
                 h-full
                 object-cover
-                transition-all
+                transition-transform
                 duration-700
                 group-hover:scale-105
               "
@@ -133,48 +136,45 @@ export default function Features() {
                 ${feat.overlay}
                 transition-all
                 duration-500
-                group-hover:brightness-90
+                group-hover:brightness-95
               `}
             />
 
             {/* Content */}
-            <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 sm:p-8 text-white">
+            <div className="absolute inset-0 z-20 flex flex-col justify-end p-7 sm:p-8 text-white">
+
               {/* Icon */}
-              <div className={`${feat.color} mb-3 transition-transform duration-500 group-hover:scale-105`}>
+              <div className={`${feat.color} mb-4 transition-transform duration-500 group-hover:scale-105`}>
                 {feat.icon}
               </div>
 
               {/* Title */}
-              <h3 className={`text-[1.8rem] sm:text-[2rem] font-extrabold leading-none ${feat.color}`}>
+              <h3 className={`text-[30px] sm:text-[34px] font-bold leading-none ${feat.color}`}>
                 {feat.title}
               </h3>
 
               {/* Description */}
-              <p className="mt-2 text-sm sm:text-base text-white/90 leading-snug">
+              <p className="mt-3 text-base leading-relaxed text-white/90">
                 {feat.desc}
               </p>
 
               {/* Script */}
-              <span className="font-script text-[1.8rem] sm:text-[2rem] text-white/95 mt-4 transition-all duration-500 group-hover:translate-x-1">
+              <span className="font-script text-[30px] text-white mt-5 transition-all duration-500 group-hover:translate-x-1">
                 {feat.script}
               </span>
 
-              {/* Underline */}
+              {/* Accent Line */}
               <div
-                className={`
+                className="
+                  mt-4
                   h-[3px]
+                  w-16
                   rounded-full
-                  mt-3
+                  bg-[#D8B57A]
                   transition-all
                   duration-500
                   group-hover:w-32
-                  w-16
-                  ${
-                    feat.color === "text-[#2a40d1]"
-                      ? "bg-[#2a40d1]"
-                      : "bg-[#ff9705]"
-                  }
-                `}
+                "
               />
             </div>
           </div>

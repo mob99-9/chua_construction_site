@@ -76,9 +76,12 @@ function ProjectsShowcase() {
     <section className="projects-showcase">
       <div className="projects-showcase__container">
         <div className="projects-showcase__top">
+          {/* Introduction */}
           <aside className="projects-intro">
-            <span className="projects-label">About Our Work</span>
-            <span className="projects-label-line" />
+            <div className="projects-label-wrap">
+              <span className="projects-label">About Our Work</span>
+              <span className="projects-label-line" />
+            </div>
 
             <h2 className="projects-intro-title">
               Built with passion.
@@ -89,15 +92,17 @@ function ProjectsShowcase() {
             <span className="projects-title-line" />
 
             <p className="projects-intro-copy">
-              ARKI has done many great projects throughout the years. From dream
-              homes, tall buildings, cozy cafes, and practical spaces.
+              ARKI has completed many exceptional projects throughout the
+              years—from dream homes and commercial buildings to welcoming
+              churches and practical spaces.
             </p>
 
             <div className="projects-blueprint" aria-hidden="true">
-              <Building2 />
+              <Building2 strokeWidth={1.3} />
             </div>
           </aside>
 
+          {/* Featured Projects */}
           <div className="featured-projects">
             <div className="featured-heading">
               <div className="featured-heading-label">
@@ -118,6 +123,7 @@ function ProjectsShowcase() {
                   <article className="featured-card" key={project.id}>
                     <div className="featured-card-icon-area">
                       <span className="featured-card-halo" />
+
                       <Icon
                         className="featured-card-icon"
                         strokeWidth={1.45}
@@ -144,7 +150,7 @@ function ProjectsShowcase() {
                         className="featured-card-link"
                       >
                         Read More
-                        <ArrowRight size={20} />
+                        <ArrowRight size={19} />
                       </Link>
                     </div>
                   </article>
@@ -154,11 +160,18 @@ function ProjectsShowcase() {
           </div>
         </div>
 
+        {/* More Projects */}
         <section className="more-projects">
           <div className="more-projects-header">
             <div className="more-projects-heading">
-              <Grid2X2 className="more-projects-icon" size={28} />
+              <Grid2X2
+                className="more-projects-icon"
+                size={28}
+                aria-hidden="true"
+              />
+
               <h2>More Projects</h2>
+
               <span />
             </div>
           </div>
@@ -175,6 +188,7 @@ function ProjectsShowcase() {
                 >
                   <div className="more-project-icon-wrap">
                     <span />
+
                     <Icon
                       className="more-project-icon"
                       strokeWidth={1.45}
@@ -183,8 +197,15 @@ function ProjectsShowcase() {
                   </div>
 
                   <h3>{project.title}</h3>
+
                   <span className="more-project-card-line" />
+
                   <p>{project.desc}</p>
+
+                  <div className="more-project-arrow">
+                    View Project
+                    <ArrowRight size={17} />
+                  </div>
                 </Link>
               );
             })}
