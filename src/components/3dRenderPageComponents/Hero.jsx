@@ -3,7 +3,7 @@ import heroVideo from "../../assets/3DRenderPage/Hero Banner.mp4";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-[75vh] min-h-[600px] overflow-hidden">
+    <section className="relative w-full h-[65vh] min-h-[380px] md:h-[75vh] md:min-h-[600px] overflow-hidden">
       {/* Background Video */}
       <video
         autoPlay
@@ -19,13 +19,13 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/25 z-10"></div>
 
       {/* Top Gradient */}
-      <div className="absolute inset-x-0 top-0 z-20 h-56 bg-gradient-to-b from-[#00062E] via-[#00062E]/80 to-transparent" />
+      <div className="absolute inset-x-0 top-0 z-20 h-32 md:h-56 bg-gradient-to-b from-[#00062E] via-[#00062E]/80 to-transparent" />
 
       {/* Bottom Gradient */}
-      <div className="absolute inset-x-0 bottom-0 z-20 h-64 bg-gradient-to-t from-[#00062E]/95 via-[#00062E]/65 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 z-20 h-36 md:h-64 bg-gradient-to-t from-[#00062E]/95 via-[#00062E]/65 to-transparent" />
 
       {/* Hero Content */}
-      <div className="relative z-30 h-full max-w-[1200px] mx-auto px-[5%] flex flex-col justify-end pb-14 md:pb-16 lg:pb-20">
+      <div className="relative z-30 h-full max-w-[1200px] mx-auto px-[5%] flex flex-col justify-end pb-8 sm:pb-12 md:pb-16 lg:pb-20">
         <div className="max-w-[760px]">
           {/* Small Label */}
           <p className="uppercase tracking-[0.3em] text-[#F97400] font-medium text-xs sm:text-sm mb-5">
@@ -34,11 +34,11 @@ export default function Hero() {
 
           {/* Heading */}
           <h1 className="font-archivo uppercase leading-[0.96] tracking-[-0.02em] font-semibold select-none">
-            <span className="block text-white text-[34px] sm:text-[46px] md:text-[58px] lg:text-[68px]">
+            <span className="block text-white text-[28px] sm:text-[46px] md:text-[58px] lg:text-[68px]">
               DIGITALLY,
             </span>
 
-            <span className="block text-white text-[34px] sm:text-[46px] md:text-[58px] lg:text-[68px] mt-1">
+            <span className="block text-white text-[28px] sm:text-[46px] md:text-[58px] lg:text-[68px] mt-1">
               BRING IT TO{" "}
               <span className="text-[#F97400] font-bold">
                 LIFE!

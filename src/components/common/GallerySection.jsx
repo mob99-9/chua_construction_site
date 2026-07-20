@@ -64,20 +64,20 @@ return (
 <div className="mb-16">
 
 
-<div className="flex items-center gap-4">
+<div className="flex flex-wrap items-center gap-x-4 gap-y-2">
 
-<h2 className="text-4xl md:text-5xl font-extrabold text-[#F87400] flex items-center gap-3">
-{getMainIcon(title) && <img src={getMainIcon(title)} alt="" className="w-10 h-10 object-contain" />}
+<h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#F87400] flex items-center gap-2 sm:gap-3">
+{getMainIcon(title) && <img src={getMainIcon(title)} alt="" className="w-8 h-8 sm:w-10 sm:h-10 object-contain" />}
 {title}
 </h2>
 
 
-<span className="text-5xl text-[#001186]">
+<span className="hidden sm:inline text-4xl md:text-5xl text-[#001186]">
 |
 </span>
 
 
-<span className="text-4xl font-semibold text-[#001186]">
+<span className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#001186]">
 Services
 </span>
 
@@ -85,7 +85,7 @@ Services
 </div>
 
 
-<p className="mt-4 text-lg text-slate-600">
+<p className="mt-4 text-base sm:text-lg text-slate-600">
 Check out our previous {service.toLowerCase()} projects below.
 </p>
 

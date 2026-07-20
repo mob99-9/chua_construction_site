@@ -150,7 +150,7 @@ export default function Testimonials() {
               className="
                 w-full
                 h-full
-                object-cover
+                object-contain
                 transition-all
                 duration-700
               "
