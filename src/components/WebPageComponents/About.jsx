@@ -88,9 +88,11 @@ export default function About() {
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-r from-[#483832]/95 via-[#483832]/75 to-[#483832]/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#483832]/70 via-transparent to-transparent" />
+          {/* Left Gradient */}
+<div className="absolute inset-0 bg-gradient-to-r from-[#483832]/55 via-[#483832]/28 to-transparent" />
 
+{/* Bottom Gradient */}
+<div className="absolute inset-0 bg-gradient-to-t from-[#483832]/35 via-transparent to-transparent" />
           <div className="relative z-10 flex min-h-[420px] items-center px-7 py-14 sm:px-12 md:min-h-[520px] lg:px-20">
             <div className="max-w-3xl">
               <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur-md">
