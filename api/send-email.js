@@ -87,8 +87,10 @@ export async function submitInquiry(req, res) {
       from: process.env.RESEND_FROM_EMAIL || "Contact Form <onboarding@resend.dev>",
       to: process.env.RESEND_TO_EMAIL || "your-personal-email@gmail.com",
       subject: `Quote Request from ${payload.fullName}`,
-      template: "new-project-inquiry", // Replace with actual template ID
-      templateVariables: buildTemplateVariables(payload),
+      template: { 
+        id: "new-project-inquiry", // Replace with actual template ID
+        variables: buildTemplateVariables(payload),
+      }
     });
 
     return sendJson(res, 200, { ok: true, message: "Email sent successfully." });
