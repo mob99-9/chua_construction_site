@@ -49,17 +49,16 @@ function readJsonBody(req) {
   });
 }
 
-function buildMessage(payload) {
-  return [
-    `Name: ${payload.fullName || "N/A"}`,
-    `Email: ${payload.email || "N/A"}`,
-    `Phone: ${payload.contactNumber || "N/A"}`,
-    `Service: ${payload.serviceType || "N/A"}`,
-    `Budget: ${payload.estimatedBudget || "N/A"}`,
-    `Start Date: ${payload.expectedStartDate || "N/A"}`,
-    "",
-    `Project Details:\n${payload.projectDescription || "N/A"}`,
-  ].join("\n");
+function buildTemplateVariables(payload) {
+  return {
+    customer_name: payload.fullName || "N/A",
+    customer_email: payload.email || "N/A",
+    customer_phone: payload.contactNumber || "N/A",
+    service_needed: payload.serviceType || "N/A",
+    budget: payload.estimatedBudget || "N/A",
+    start_date: payload.expectedStartDate || "N/A",
+    project_details: payload.projectDescription || "N/A",
+  };
 }
 
 export async function submitInquiry(req, res) {
@@ -88,7 +87,8 @@ export async function submitInquiry(req, res) {
       from: process.env.RESEND_FROM_EMAIL || "Contact Form <onboarding@resend.dev>",
       to: process.env.RESEND_TO_EMAIL || "your-personal-email@gmail.com",
       subject: `Quote Request from ${payload.fullName}`,
-      text: buildMessage(payload),
+      template: "new-project-inquiry", // Replace with actual template ID
+      templateVariables: buildTemplateVariables(payload),
     });
 
     return sendJson(res, 200, { ok: true, message: "Email sent successfully." });
